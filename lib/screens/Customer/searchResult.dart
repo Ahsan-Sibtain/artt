@@ -75,7 +75,7 @@ class _SearchResultState extends State<SearchResult> {
                                 width: 55.0,
                               ),
 
-                              //TODO: Deatil Button
+                              //TODO: Detail Button
                               GestureDetector(
                                 child: Container(
                                   height: 25.0,
@@ -102,13 +102,11 @@ class _SearchResultState extends State<SearchResult> {
                             height: 25.0,
                             width: 70.0,
                             decoration: BoxDecoration(
-                              boxShadow: kElevationToShadow[1],
-                              borderRadius: BorderRadius.circular(40),
-                              color: (Text == 'sold')
-                                  ? Colors.blue
-                                  : Colors
-                                      .red, //TODO: Check Status if available Color Blue
-                            ),
+                                boxShadow: kElevationToShadow[1],
+                                borderRadius: BorderRadius.circular(40),
+                                color: Colors.blue
+                                //TODO: Check Status if available Color Blue
+                                ),
                             child: Center(
                               child: Text(
                                 "Available",

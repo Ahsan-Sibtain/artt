@@ -31,7 +31,7 @@ class _ProfileState extends State<Profile> {
               height: 10.0,
             ),
             Text(
-              "AHSAN", //TODO: User Name
+              "Ahsan", //TODO: User Name
               style: kTextStyleHeader,
             ),
             SizedBox(

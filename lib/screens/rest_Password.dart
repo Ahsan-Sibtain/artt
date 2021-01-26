@@ -59,7 +59,7 @@ class _RestPasswordState extends State<RestPassword> {
                   color: Colors.white,
                 ),
 
-                //***** ENTER EMAIL TEXT FIELD
+                //******* ENTER EMAIL TEXT FIELD
                 //TODO:ENTER  EMAIL
                 child: TextFormField(
                   keyboardType: TextInputType.emailAddress,
@@ -78,7 +78,7 @@ class _RestPasswordState extends State<RestPassword> {
                   color: Colors.white,
                 ),
 
-                //***** Phone Number FIELD
+                //******* Phone Number FIELD
                 //TODO:ENTER  EMAIL
                 child: TextFormField(
                   keyboardType: TextInputType.emailAddress,

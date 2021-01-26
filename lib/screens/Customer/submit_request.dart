@@ -123,16 +123,12 @@ class _RequestState extends State<Request> {
                             //TODO: COUNTRY/Region  DROP DOWN
                             CountryCodePicker(
                               onChanged: print,
-                              // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
                               initialSelection: 'IT',
-
                               showCountryOnly: true,
                               showOnlyCountryWhenClosed: true,
                               favorite: ['+39', 'FR'],
-
                               showFlagDialog: true,
                               comparator: (a, b) => b.name.compareTo(a.name),
-
                               onInit: (code) => print(
                                   "on init ${code.dialCode} ${code.name} "),
                             ),
@@ -163,6 +159,7 @@ class _RequestState extends State<Request> {
                   SizedBox(
                     height: 15.0,
                   ),
+
                   //************* City
 
                   Text("City", style: CardSubTitleStyle),
@@ -214,6 +211,7 @@ class _RequestState extends State<Request> {
                       },
                     ),
                   ),
+
                   //************* Message
                   SizedBox(height: 15.0),
                   Text("Message", style: CardSubTitleStyle),
@@ -235,7 +233,6 @@ class _RequestState extends State<Request> {
                       )),
                   SizedBox(height: 15.0),
 
-                  //*************
                   SizedBox(
                     height: 20.0,
                   ),
@@ -260,4 +257,3 @@ class _RequestState extends State<Request> {
     );
   }
 }
-//****************************
