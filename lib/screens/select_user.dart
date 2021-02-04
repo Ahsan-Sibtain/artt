@@ -65,7 +65,7 @@ class _SelectUserState extends State<SelectUser> {
                   ),
                 );
               },
-              buttonTitle: "Artist",
+              buttonTitle: "Seller",
               colour: Color(0xFFFF3D3A3A),
             ),
             SizedBox(height: 20.0),

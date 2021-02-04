@@ -2,10 +2,11 @@ import 'package:art/component/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:art/component/imagelist.dart';
-import 'file:///D:/Android%20Project/art/lib/screens/Customer/submit_request.dart';
+
 import 'package:art/component/button.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'show_Review.dart';
+import 'submit_request.dart';
 
 class ArtDetail extends StatefulWidget {
   @override

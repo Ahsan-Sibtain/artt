@@ -50,8 +50,8 @@ class _LanguageChangeState extends State<LanguageChange> {
                 "Select Language",
                 style: TextStyle(
                     color: Color(0xFFFF3D3A3A),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 28.0),
+                    fontWeight: FontWeight.w400,
+                    fontSize: 24.0),
               ),
               SizedBox(
                 height: 10.0,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+
+
 class CategoryChipHome extends StatefulWidget {
   @override
   _CategoryChipHomeState createState() => new _CategoryChipHomeState();
@@ -7,7 +9,8 @@ class CategoryChipHome extends StatefulWidget {
 
 class _CategoryChipHomeState extends State<CategoryChipHome>
     with TickerProviderStateMixin {
-  int _selectedIndex;
+  int _selectedIndex ;
+
   List<String> _options = [
     "All",
     "Painting",
@@ -64,13 +67,17 @@ class _CategoryChipHomeState extends State<CategoryChipHome>
 //*******************************************************************
 
 class SubCategoryChip extends StatefulWidget {
+
+
+
   @override
   _SubCategoryChipState createState() => new _SubCategoryChipState();
 }
 
 class _SubCategoryChipState extends State<SubCategoryChip>
     with TickerProviderStateMixin {
-  int _selectedIndex;
+
+  int _selectedIndex = 0;
   List<String> _options = [
     "All",
     "Acrylic",
@@ -94,6 +101,7 @@ class _SubCategoryChipState extends State<SubCategoryChip>
           setState(() {
             if (selected) {
               _selectedIndex = i;
+
             }
           });
         },

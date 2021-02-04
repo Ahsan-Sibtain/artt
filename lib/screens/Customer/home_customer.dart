@@ -12,6 +12,8 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'artDetail.dart';
 
 class CustomerHome extends StatefulWidget {
+
+
   @override
   _CustomerHomeState createState() => _CustomerHomeState();
 }
@@ -21,60 +23,69 @@ class _CustomerHomeState extends State<CustomerHome> {
 
   RoundCardData _round = RoundCardData();
   bool _switch = false;
+  bool _visible = false;
   double value = 0.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          Center(
-            child: Row(
-              children: [
-                Text(
-                  "Customer",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                ),
-                Switch(
-                  //TODO: Availability BUTTON
-                  // title: Text('Out of Stock'),
-                  value: _switch,
-                  onChanged: (bool value) {
-                    setState(() {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ArtistLogin()));
-                    });
-                  },
-                ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
 
-                //       InkWell(
-                //           splashColor: Colors.grey[400],
-                //           highlightColor: Colors.grey[400],
-                //           child: Text(
-                //             "Filter",
-                //             style: TextStyle(
-                //                 color: Colors.white,
-                //                 fontWeight: FontWeight.bold,
-                //                 fontSize: 15.0),
-                //           ),
-                //           onTap: () {
-                //             Navigator.push(
-                //               context,
-                //               MaterialPageRoute(
-                //                 builder: (context) => CustomerSearch(),
-                //               ),
-                //             );
-                //           }),
-                //       SizedBox(
-                //         width: 20.0,
-                //       )
-              ],
-            ),
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              // Text(
+              //   "Customer",
+              //   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+              // ),
+              // Switch(
+              //   //TODO: Availability BUTTON
+              //   // title: Text('Out of Stock'),
+              //   value: _switch,
+              //   onChanged: (bool value) {
+              //     setState(() {
+              //       Navigator.pushReplacement(
+              //           context,
+              //           MaterialPageRoute(
+              //               builder: (context) => ArtistLogin()));
+              //     });
+              //   },
+              // ),
+
+              Icon(Icons.settings,)
+
+              //       InkWell(
+              //           splashColor: Colors.grey[400],
+              //           highlightColor: Colors.grey[400],
+              //           child: Text(
+              //             "Filter",
+              //             style: TextStyle(
+              //                 color: Colors.white,
+              //                 fontWeight: FontWeight.bold,
+              //                 fontSize: 15.0),
+              //           ),
+              //           onTap: () {
+              //             Navigator.push(
+              //               context,
+              //               MaterialPageRoute(
+              //                 builder: (context) => CustomerSearch(),
+              //               ),
+              //             );
+              //           }),
+              //       SizedBox(
+              //         width: 20.0,
+              //       )
+            ],
           ),
         ],
         backgroundColor: Color(0xFFFF3D3A3A),
-        title: Text("Home"),
+        title: Image.asset(
+          'images/logo.png',
+          width: 40.0,
+          height: 40.0,
+          fit: BoxFit.cover,
+        ),
         centerTitle: true,
       ),
       body: ListView(
@@ -86,8 +97,16 @@ class _CustomerHomeState extends State<CustomerHome> {
               children: [
                 Text("Choose a topic", style: kTextStyleHeader),
                 CategoryChipHome(),
-                Text("Specify your interest", style: kTextStyleHeader),
-                SubCategoryChip(),
+
+                Visibility(
+                    visible: _visible,
+
+                    child: Column(
+                      children: [
+                        Text("Specify your interest", style: kTextStyleHeader),
+                        SubCategoryChip(),
+                      ],
+                    )),
                 Text(
                   "Top 10 Sellers",
                   style: kTextStyleHeader,
@@ -405,183 +424,188 @@ class _CustomerHomeState extends State<CustomerHome> {
                               child: Container(
                                   width: MediaQuery.of(context).size.width,
                                   // margin: const EdgeInsets.all(30.0),
-                                  padding: const EdgeInsets.all(5.0),
-                                  decoration: BoxDecoration(
-                                      color: Colors.grey[300],
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      border: Border.all(color: Colors.grey)),
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              "${_data.getArtName(index)}", //TODO: Art Name
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            Text(
-                                              "${_data.getPrice(index)}", //TODO:PRice
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 20.0),
-                                            )
-                                          ]),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                  child: Card(
+                                    color: Colors.grey.shade100,
+                                    elevation: 5,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
                                         children: [
                                           Row(
-                                            children: [
-                                              Container(
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white60,
-                                                    boxShadow:
-                                                        kElevationToShadow[6],
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30.0),
-                                                  ),
-                                                  //TODO:Profile image
-                                                  child: CircleAvatar(
-                                                    radius: 15.0,
-                                                    backgroundImage: AssetImage(
-                                                        "${_data.getImage(index)}"),
-                                                  )),
-                                              SizedBox(
-                                                width: 5.0,
-                                              ),
-                                              Text(
-                                                  "${_data.getName(index)}", //TODO: User Name
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text(
+                                                  "${_data.getArtName(index)}", //TODO: Art Name
                                                   style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold)),
-                                            ],
-                                          ),
+                                                      fontWeight: FontWeight.bold),
+                                                ),
+                                                Text(
+                                                  "${_data.getPrice(index)}", //TODO:PRice
+                                                  style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 20.0),
+                                                )
+                                              ]),
                                           Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Text(
-                                                "${_data.getItem(index)}"
-                                                " Items Left", //TODO: Remaining Items
-                                                style: TextStyle(
-                                                    color: Colors.red,
-                                                    fontSize: 12.0,
-                                                    fontWeight:
-                                                        FontWeight.bold),
+                                              Row(
+                                                children: [
+                                                  Container(
+                                                      decoration: BoxDecoration(
+                                                        color: Colors.white60,
+                                                        boxShadow:
+                                                            kElevationToShadow[6],
+                                                        borderRadius:
+                                                            BorderRadius.circular(
+                                                                30.0),
+                                                      ),
+                                                      //TODO:Profile image
+                                                      child: CircleAvatar(
+                                                        radius: 15.0,
+                                                        backgroundImage: AssetImage(
+                                                            "${_data.getImage(index)}"),
+                                                      )),
+                                                  SizedBox(
+                                                    width: 5.0,
+                                                  ),
+                                                  Text(
+                                                      "${_data.getName(index)}", //TODO: User Name
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold)),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    "${_data.getItem(index)}"
+                                                    " Items Left", //TODO: Remaining Items
+                                                    style: TextStyle(
+                                                        color: Colors.red,
+                                                        fontSize: 12.0,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  )
+                                                ],
                                               )
                                             ],
-                                          )
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 5.0,
-                                      ),
-                                      Divider(
-                                        thickness: 2.0,
-                                      ),
-                                      Container(
-                                          width:
-                                              MediaQuery.of(context).size.width,
-                                          //TODO: Image Slider
-                                          child: CarouselSlider(
-                                            options: CarouselOptions(
-                                              aspectRatio: 2.0,
-                                              enlargeCenterPage: true,
-                                            ),
-                                            items: imgList
-                                                .map((item) => Container(
-                                                      child: Center(
-                                                          child: Stack(
-                                                        children: [
-                                                          Image.asset(
-                                                            item,
-                                                            fit: BoxFit.cover,
-                                                            width:
-                                                                MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width,
-                                                          ),
-                                                          Positioned(
-                                                            child: IconButton(
-                                                              icon: Icon(
-                                                                EvaIcons
-                                                                    .heartOutline,
-                                                                size: 40.0,
-                                                                color: Colors
-                                                                    .white,
+                                          ),
+                                          SizedBox(
+                                            height: 5.0,
+                                          ),
+                                          Divider(
+                                            thickness: 2.0,
+                                          ),
+                                          Container(
+                                              width:
+                                                  MediaQuery.of(context).size.width,
+                                              //TODO: Image Slider
+                                              child: CarouselSlider(
+                                                options: CarouselOptions(
+                                                  aspectRatio: 2.0,
+                                                  enlargeCenterPage: true,
+                                                ),
+                                                items: imgList
+                                                    .map((item) => Container(
+                                                          child: Center(
+                                                              child: Stack(
+                                                            children: [
+                                                              Image.asset(
+                                                                item,
+                                                                fit: BoxFit.cover,
+                                                                width:
+                                                                    MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .width,
                                                               ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      )),
-                                                    ))
-                                                .toList(),
-                                          )),
-                                      SizedBox(
-                                        height: 5.0,
-                                      ),
-                                      Divider(
-                                        thickness: 2.0,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                EvaIcons.heartOutline,
-                                                color: Colors.black,
-                                              ),
-                                              Text(
-                                                "${_data.getLikes(index)}",
-                                              ), //TODO Likes
-                                              SizedBox(
-                                                width: 10.0,
-                                              ),
-
-                                              Icon(
-                                                EvaIcons.star,
-                                                color: Colors.orangeAccent,
-                                              ),
-                                              Text(
-                                                "${_data.getRating(index)}",
-                                                style: TextStyle(
-                                                    color: Colors.orangeAccent),
-                                              ),
-                                              SizedBox(
-                                                width: 10.0,
-                                              ),
-                                              Icon(
-                                                EvaIcons.eyeOutline,
-                                                color: Colors.black,
-                                              ),
-                                              Text("("),
-                                              Text(
-                                                "${_data.getView(index)}",
-                                              ),
-                                              Text(")"),
-                                            ],
+                                                              Positioned(
+                                                                child: IconButton(
+                                                                  icon: Icon(
+                                                                    EvaIcons
+                                                                        .heartOutline,
+                                                                    size: 40.0,
+                                                                    color: Colors
+                                                                        .white,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          )),
+                                                        ))
+                                                    .toList(),
+                                              )),
+                                          SizedBox(
+                                            height: 5.0,
+                                          ),
+                                          Divider(
+                                            thickness: 2.0,
                                           ),
                                           Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
-                                              InkWell(
-                                                  splashColor: Colors.grey[400],
-                                                  highlightColor:
-                                                      Colors.grey[400],
-                                                  child: Icon(
-                                                    EvaIcons.share,
-                                                    color: Colors.black54,
-                                                    size: 40.0,
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    EvaIcons.heartOutline,
+                                                    color: Colors.black,
                                                   ),
-                                                  onTap: () {}),
+                                                  Text(
+                                                    "${_data.getLikes(index)}",
+                                                  ), //TODO Likes
+                                                  SizedBox(
+                                                    width: 10.0,
+                                                  ),
+
+                                                  Icon(
+                                                    EvaIcons.star,
+                                                    color: Colors.orangeAccent,
+                                                  ),
+                                                  Text(
+                                                    "${_data.getRating(index)}",
+                                                    style: TextStyle(
+                                                        color: Colors.orangeAccent),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 10.0,
+                                                  ),
+                                                  Icon(
+                                                    EvaIcons.eyeOutline,
+                                                    color: Colors.black,
+                                                  ),
+                                                  Text("("),
+                                                  Text(
+                                                    "${_data.getView(index)}",
+                                                  ),
+                                                  Text(")"),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  InkWell(
+                                                      splashColor: Colors.grey[400],
+                                                      highlightColor:
+                                                          Colors.grey[400],
+                                                      child: Icon(
+                                                        EvaIcons.share,
+                                                        color: Colors.black54,
+                                                        size: 40.0,
+                                                      ),
+                                                      onTap: () {}),
+                                                ],
+                                              )
                                             ],
-                                          )
+                                          ),
                                         ],
                                       ),
-                                    ],
+                                    ),
                                   )),
                             ),
                             SizedBox(

@@ -19,7 +19,7 @@ const kTextSpanRed =
 const kTextSpanGray = TextStyle(
     fontWeight: FontWeight.bold, fontSize: 22.0, color: Colors.black54);
 const kTextStyleHeader = TextStyle(
-    color: Color(0xFFFF3D3A3A), fontWeight: FontWeight.bold, fontSize: 18.0);
+    color: Color(0xFFFF3D3A3A), fontWeight: FontWeight.bold, fontSize: 14.0);
 const kCategoryText = TextStyle(
     color: Color(0xFFFF3D3A3A), fontWeight: FontWeight.bold, fontSize: 15.0);
 const CardSubTitleStyle =
