@@ -21,8 +21,16 @@ class CustomerHome extends StatefulWidget {
 class _CustomerHomeState extends State<CustomerHome> {
   TrendingData _data = TrendingData();
 
+  List<String> _options = [
+    "All",
+    "Painting",
+    "Textile",
+    "Decoration",
+  ];
+
   RoundCardData _round = RoundCardData();
   bool _switch = false;
+  int _selectedIndex ;
   bool _visible = false;
   double value = 0.0;
   @override
@@ -96,12 +104,19 @@ class _CustomerHomeState extends State<CustomerHome> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("Choose a topic", style: kTextStyleHeader),
-                CategoryChipHome(),
+
+                Container(
+                  height: 50,
+                  child: Center(child: _buildChips()),
+                ),
+
+                // CategoryChipHome(),
 
                 Visibility(
                     visible: _visible,
 
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("Specify your interest", style: kTextStyleHeader),
                         SubCategoryChip(),
@@ -536,6 +551,19 @@ class _CustomerHomeState extends State<CustomerHome> {
                                                                   ),
                                                                 ),
                                                               ),
+                                                              Positioned(
+                                                                right:12,
+                                                                top: 12,
+                                                                child: Container(
+
+                                                                    decoration: BoxDecoration(
+                                                                      borderRadius: BorderRadius.circular(12),
+                                                                      color:Colors.white,),
+                                                                    child: Padding(
+                                                                      padding: const EdgeInsets.only(left:8.0,right:8,top: 4,bottom: 4),
+                                                                      child: Text(imgList.indexOf(item).toString() + "/ 3"),
+                                                                    )),
+                                                              ),
                                                             ],
                                                           )),
                                                         ))
@@ -622,4 +650,41 @@ class _CustomerHomeState extends State<CustomerHome> {
       ),
     );
   }
+
+  Widget _buildChips() {
+    List<Widget> chips = new List();
+
+    for (int i = 0; i < _options.length; i++) {
+      ChoiceChip choiceChip = ChoiceChip(
+        selected: _selectedIndex == i,
+        label: Text(_options[i], style: TextStyle(color: Colors.white)),
+        elevation: 5,
+        pressElevation: 5,
+        shadowColor: Colors.teal,
+        backgroundColor: Colors.black54,
+        selectedColor: Colors.blue,
+        onSelected: (bool selected) {
+          setState(() {
+
+            if (selected) {
+              _selectedIndex = i;
+              _visible = true;
+            }
+          });
+        },
+      );
+
+      chips.add(Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10), child: choiceChip));
+    }
+
+    return ListView(
+      // This next line does the trick.
+      scrollDirection: Axis.horizontal,
+      children: chips,
+    );
+  }
+
+
+
 }

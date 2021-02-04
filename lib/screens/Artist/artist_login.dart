@@ -122,7 +122,36 @@ class _ArtistLoginState extends State<ArtistLogin> {
                 colour: Color(0xFFFF3D3A3A),
               ),
               SizedBox(
-                height: 180.0,
+                height: 20.0,
+              ),
+
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image(
+                    image: AssetImage('images/gmail.png',),
+                    height: 40,
+                    width: 40,
+                  ),
+                  SizedBox(
+                    width: 6.0,
+                  ),
+                  Image(
+                    image: AssetImage('images/facebook.png'),
+                    height: 30,
+                    width: 30,
+                  ) ,
+                  SizedBox(
+                    width: 6.0,
+                  ),
+
+                  Image(
+                    image: AssetImage('images/phone.png'),
+                    height: 34,
+                    width: 34,
+                  )
+                ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -22,20 +22,20 @@ class _ProfileState extends State<Profile> {
           children: [
             Center(
               child: CircleAvatar(
-                radius: 60.0,
+                radius: 40.0,
                 backgroundImage:
                     AssetImage("images/ava.png"), //TODO: Profile Pic
               ),
             ),
             SizedBox(
-              height: 10.0,
+              height: 6.0,
             ),
             Text(
               "Ahsan", //TODO: User Name
               style: kTextStyleHeader,
             ),
             SizedBox(
-              height: 10.0,
+              height: 6.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -59,7 +59,7 @@ class _ProfileState extends State<Profile> {
               ],
             ),
             SizedBox(
-              height: 20.0,
+              height: 6.0,
             ),
             ListTile(
               title: Row(
@@ -133,7 +133,7 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             SizedBox(
-              height: 20.0,
+              height: 8.0,
             ),
             Row(
               children: [

@@ -252,9 +252,9 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                           height: 10,
                                         ),
                                         Text(
-                                          "Accepted", //TODO:Status Accept
+                                          "Ship", //TODO:Status Accept
                                           style: TextStyle(
-                                              color: Colors.green,
+                                              color: Colors.yellowAccent.shade200,
                                               fontWeight: FontWeight.bold,
                                               fontSize: 20.0),
                                         ),

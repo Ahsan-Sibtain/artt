@@ -255,11 +255,11 @@ class _CancelOrderState extends State<CancelOrder> {
                                           height: 10,
                                         ),
                                         Text(
-                                          "Canceled", //TODO:Status Cancel
+                                          "You declined this offer on "+ _offer.getDate(index), //TODO:Status Cancel
                                           style: TextStyle(
                                               color: Colors.red,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 20.0),
+                                              fontSize: 8.0),
                                         ),
                                       ],
                                     )
