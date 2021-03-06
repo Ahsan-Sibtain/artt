@@ -1,11 +1,13 @@
+import 'package:art/component/CustomTextField.dart';
 import 'package:art/component/button.dart';
+import 'package:art/component/colors.dart';
 import 'package:art/component/constant.dart';
 import 'package:art/component/flat_Button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../rest_Password.dart';
-import 'artist_signupDetail.dart';
-import 'package:art/component/Artist_BottomBar.dart';
+//import 'customer_SignupDetail.dart';
+import 'package:art/component/customer_BottomBar.dart';
 
 class ArtistLogin extends StatefulWidget {
   @override
@@ -13,173 +15,177 @@ class ArtistLogin extends StatefulWidget {
 }
 
 class _ArtistLoginState extends State<ArtistLogin> {
+  bool _obscureText = true;
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 50.0),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 200.0,
-                child: Image(
-                  image: AssetImage('images/logo.png'), //TODO: Logo Image
+        child: Center(
+          child: Container(
+            width: width / 1.2,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: height / 15),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: height / 3,
+                  child: Image(
+                    image: AssetImage('images/logo.png'), //TODO: Logo Image
+                  ),
                 ),
-              ),
-              //*******************LOGIN IN TO ART FOR you TEXT
-              Row(
-                children: [
-                  RichText(
-                    textAlign: TextAlign.left,
-                    text: TextSpan(
-                      children: <TextSpan>[
-                        TextSpan(text: 'Login in to ', style: kTextSpanGray),
-                        TextSpan(text: 'Art', style: kTextSpanBlue),
-                        TextSpan(
-                          text: 'Lik',
-                          style: kTextSpanRed,
+                //*******************LOGIN IN TO ART FOR you TEXT
+                RichText(
+                  textAlign: TextAlign.left,
+                  text: TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(text: 'Login in to ', style: kTextSpanGray),
+                      TextSpan(text: 'Art', style: kTextSpanBlue),
+                      TextSpan(
+                        text: 'Lik',
+                        style: kTextSpanRed,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: height / 60),
+                //************* EMAIL TEXT
+                Text("Email", style:  TextStyle(
+                    color: Colors.grey,
+                    fontSize: height / 50,
+                    fontWeight: FontWeight.w500)),
+                SizedBox(height: height / 60),
+                CustomTextField(
+                  hinttext: "enter your email address",
+                  obscureText: false,
+                  textInputType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: height / 60),
+
+                //************* PASSWORD TEXT
+                Text("Password",
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: height / 50,
+                        fontWeight: FontWeight.w500)),
+                SizedBox(height: height / 60),
+                CustomTextField(
+                  iconButton: IconButton(
+                    icon: Icon(
+                      Icons.remove_red_eye,
+                      color: Color(0xff05a2fc),
+                    ),
+                    iconSize: 18,
+                    color: basicColorShopper,
+                    onPressed: _toggle,
+                  ),
+                  hinttext: "· · · · · · · · · ·",
+                  obscureText: _obscureText,
+                  textInputType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: height / 60),
+                Align(
+                    alignment: Alignment.centerRight,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, "/forgotPassword");
+                      },
+                      child: Text(
+                        'Forgot Password',
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w600,
+                            fontSize: height / 50),
+                      ),
+                    )),
+
+                //TODO: LOGIN BUTTON
+                SizedBox(height: height / 40),
+                Button(
+                  text: Text(
+                    "Login",
+                    style: TextStyle(),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/artistBottomBar");
+                  },
+                  color: buttonBackgroundColor,
+                  focusColor: buttonColor1,
+                  disbaleColor: buttonColor2,
+                ),
+                SizedBox(
+                  height: height / 50,
+                ),
+
+                Center(
+                  child: Container(
+                    width: width / 3,
+                    child: Row(
+                      //crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                      children: [
+                        Image(
+                          image: AssetImage(
+                            'images/gmail.png',
+                          ),
+                          height: height / 12,
+                          width: width / 10,
                         ),
+                        Image(
+                          image: AssetImage('images/facebook.png'),
+                          height: height / 20,
+                          width: width / 10,
+                        ),
+                        Image(
+                          image: AssetImage('images/phone.png'),
+                          height: height / 20,
+                          width: width / 10,
+                        )
                       ],
                     ),
                   ),
-                ],
-              ),
-              SizedBox(height: 15.0),
-              //************* EMAIL TEXT
-              Text("Email", style: kLoginText),
-              SizedBox(height: 8.0),
-              Container(
-                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                  width: 330.0,
-                  height: 50.0,
-                  decoration: BoxDecoration(
-                    boxShadow: kElevationToShadow[1],
-                    borderRadius: BorderRadius.circular(40),
-                    color: Colors.white,
-                  ),
-//TODO:EMAIL
-                  //***** ENTER EMAIL TEXT FIELD
-                  child: TextFormField(
-                    keyboardType: TextInputType.emailAddress,
-                    decoration:
-                        kTxtField.copyWith(hintText: 'Enter your Email'),
-                  )),
-              SizedBox(height: 15.0),
+                ),
 
-              //************* PASSWORD TEXT
-              Text("Password", style: kLoginText),
-              SizedBox(height: 8.0),
-              Container(
-                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                  width: 330.0,
-                  height: 50.0,
-                  decoration: BoxDecoration(
-                    boxShadow: kElevationToShadow[1],
-                    borderRadius: BorderRadius.circular(40),
-                    color: Colors.white,
-                  ),
-//TODO: PASSWORD
-                  //***** ENTER PASSWORD TEXT FIELD
-                  child: TextFormField(
-                    obscureText: true,
-                    decoration: kTxtField.copyWith(hintText: '************'),
-                  )),
-              SizedBox(height: 10.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  //******* FORGOT PASSWORD
-                  //TODO:Forgot password
-                  FilterFlatButton(
-                    ButtonTitle: "Forgot Password",
-                    TxtColor: Colors.grey,
-                    onpressed: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RestPassword()));
-                    },
-                  ),
-                ],
-              ),
-
-              //TODO: LOGIN BUTTON
-              Button(
-                onPress: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ArtistBottomBar(),
-                    ),
-                  );
-                },
-                buttonTitle: "Login",
-                colour: Color(0xFFFF3D3A3A),
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image(
-                    image: AssetImage('images/gmail.png',),
-                    height: 40,
-                    width: 40,
-                  ),
-                  SizedBox(
-                    width: 6.0,
-                  ),
-                  Image(
-                    image: AssetImage('images/facebook.png'),
-                    height: 30,
-                    width: 30,
-                  ) ,
-                  SizedBox(
-                    width: 6.0,
-                  ),
-
-                  Image(
-                    image: AssetImage('images/phone.png'),
-                    height: 34,
-                    width: 34,
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have Account ?",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  FlatButton(
-                    splashColor: Colors.grey,
-                    minWidth: 10.0,
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ArtistSignUpDetail(),
+                Center(
+                  child: Container(
+                    width: width / 2.2,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Don't have Account ?",
+                          style: TextStyle(fontWeight: FontWeight.w500),
                         ),
-                      );
-                    },
-                    child: Text("Signup",
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0)),
+                        Align(
+                            alignment: Alignment.centerRight,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(context, "/artistSignUp");
+                              },
+                              child: Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: height / 50),
+                              ),
+                            )),
+                      ],
+                    ),
                   ),
-                ],
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),

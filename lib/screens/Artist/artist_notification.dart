@@ -12,59 +12,65 @@ class _ArtistNotificationScreenState extends State<ArtistNotificationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Color(0xFFFF3D3A3A),
-        title: Text("Notification"),
+        title: Text("Notifications"),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              Container(
-                height: MediaQuery.of(context).size.height,
-                child: ListView.builder(
-                    // scrollDirection: Axis.horizontal,
-                    itemCount: _notification.getLength(),
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          ListTile(
-                            leading: CircleAvatar(
-                              backgroundImage: AssetImage(
-                                "${_notification.getImage(index)}",
-                              ),
-                              radius: 30.0,
-                            ),
-                            title: Text(
-                              //TODO:ORDER STATUS
-                              "${_notification.getOrder(index)}",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
+        child: Center(
+          child: Container(
+            width: width/1.1,
+            child: Column(
 
-                            //TODO: Order Number and date
-                            subtitle: Text(
-                              "${_notification.getMessage(index)}",
-                              textAlign: TextAlign.justify,
+              children: [
+                SizedBox(height: height/70,),
+                Container(
+                  height: MediaQuery.of(context).size.height,
+                  child: ListView.builder(
+                      // scrollDirection: Axis.horizontal,
+                      itemCount: _notification.getLength(),
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: [
+                            ListTile(
+                              leading: CircleAvatar(
+                                backgroundImage: AssetImage(
+                                  "${_notification.getImage(index)}",
+                                ),
+                                radius: 30.0,
+                              ),
+                              title: Text(
+                                //TODO:ORDER STATUS
+                                "${_notification.getOrder(index)}",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+
+                              //TODO: Order Number and date
+                              subtitle: Text(
+                                "${_notification.getMessage(index)}",
+                                textAlign: TextAlign.justify,
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          Divider(
-                            thickness: 2,
-                          ),
-                        ],
-                      );
-                    }),
-              ),
-              Divider(
-                thickness: 2.0,
-              )
-            ],
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Divider(
+                              thickness: 2,
+                            ),
+                          ],
+                        );
+                      }),
+                ),
+                Divider(
+                  thickness: 2.0,
+                )
+              ],
+            ),
           ),
         ),
       ),

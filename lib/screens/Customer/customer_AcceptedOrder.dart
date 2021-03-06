@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:art/component/flat_Button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../offer_Detail.dart';
 import 'package:art/component/list_data.dart';
 import 'package:art/component/constant.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
@@ -21,8 +22,11 @@ class _OrderAcceptedState extends State<OrderAccepted> {
           child: Column(
             children: [
               Expanded(
+// height: MediaQuery.of(context).size.height,
                 child: ListView.builder(
                     shrinkWrap: true,
+// scrollDirection: Axis.vertical,
+//
                     itemCount: _offer.getLength(),
                     itemBuilder: (context, index) {
                       return Column(
@@ -36,7 +40,7 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                               children: [
                                 Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  MainAxisAlignment.spaceBetween,
                                   children: [
                                     Row(
                                       children: <Widget>[
@@ -45,7 +49,7 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                               color: Colors.white60,
                                               boxShadow: kElevationToShadow[6],
                                               borderRadius:
-                                                  BorderRadius.circular(25.0),
+                                              BorderRadius.circular(25.0),
                                             ),
                                             child: CircleAvatar(
                                               radius: 20.0,
@@ -56,7 +60,7 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                         SizedBox(width: 5.0),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               "${_offer.getName(index)}", //TODO: NAME
@@ -102,15 +106,16 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                             Row(
                                               children: [
                                                 Text(
-                                                  'offered you  ',
+                                                  'Your Offer',
                                                   style: kLoginText,
                                                 ),
+                                                SizedBox(width: 7),
                                                 Text(
                                                   "${_offer.getOffer(index)}", //TODO: OFFER
                                                   style: TextStyle(
                                                       fontSize: 20,
                                                       fontWeight:
-                                                          FontWeight.bold),
+                                                      FontWeight.bold),
                                                 )
                                               ],
                                             ),
@@ -122,12 +127,13 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                                 Icon(
                                                   EvaIcons.clock,
                                                   color: Colors.grey,
+                                                  size: 18,
                                                 ),
                                                 Text(
                                                   "${_offer.getDate(index)}",
                                                   style: TextStyle(
                                                       fontSize:
-                                                          12), //TODO: date
+                                                      12), //TODO: date
                                                 ),
                                                 SizedBox(
                                                   width: 10.0,
@@ -136,7 +142,7 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                                   "${_offer.getHours(index)}",
                                                   style: TextStyle(
                                                       fontSize:
-                                                          12), //ToDO:hours
+                                                      12), //ToDO:hours
                                                 )
                                               ],
                                             ),
@@ -156,14 +162,14 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                   children: [
                                     Container(
                                       height: 170.0,
-                                      width: 180.0,
+                                      width: 160.0,
                                       child: Card(
                                         color: Colors.grey.shade100,
-                                        elevation: 5,
+                                        elevation: 0,
 //margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
-                                              BorderRadius.circular(12.0),
+                                          BorderRadius.circular(12.0),
                                         ),
                                         child: Column(
                                           children: <Widget>[
@@ -174,13 +180,13 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                                     fontSize: 15,
                                                     fontWeight: FontWeight.bold)
 //CardTitleTxtStyle,
-                                                ),
+                                            ),
                                             Container(
                                               height: 120,
-                                              width: 180.0,
+                                              width: 170.0,
                                               decoration: BoxDecoration(
                                                 borderRadius:
-                                                    BorderRadius.only(),
+                                                BorderRadius.only(),
                                                 image: DecorationImage(
                                                   image: AssetImage(
                                                     "${_offer.getArtImage(index)}", //TODO: ART IMAGE
@@ -195,7 +201,7 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                                     color: Colors.black,
                                                     fontSize: 15,
                                                     fontWeight:
-                                                        FontWeight.bold)),
+                                                    FontWeight.bold)),
                                           ],
                                         ),
                                       ),
@@ -205,16 +211,17 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                     ),
                                     Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Row(
                                           children: [
-                                            Icon(Icons.payment_outlined),
+                                            Icon(Icons.payment_outlined,size: 18,),
                                             SizedBox(
-                                              width: 10,
+                                              width: 5,
                                             ),
                                             Text(
-                                              "${_offer.getPayment(index)}", //TODO:Payment Method
+                                              "${_offer.getPayment(index)}",
+                                              style: TextStyle(fontSize: 10),//TODO:Payment Method
                                             )
                                           ],
                                         ),
@@ -223,12 +230,13 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                         ),
                                         Row(
                                           children: [
-                                            FaIcon(FontAwesomeIcons.bus),
+                                            FaIcon(FontAwesomeIcons.bus,size: 18,),
                                             SizedBox(
-                                              width: 10,
+                                              width: 5,
                                             ),
                                             Text(
-                                              "${_offer.getDelivery(index)}", //TODO:DElivery
+                                              "${_offer.getDelivery(index)}",
+                                              style: TextStyle(fontSize: 12),//TODO:DElivery
                                             ),
                                           ],
                                         ),
@@ -237,27 +245,57 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                         ),
                                         Row(
                                           children: [
-                                            Icon(Icons.location_on),
+                                            Icon(Icons.location_on,size: 18,),
                                             SizedBox(
-                                              width: 10,
+                                              width: 5,
                                             ),
-                                            Text(
-                                              "${_offer.getLocal(index)}",
-                                              style: TextStyle(
-                                                  fontSize: 12), //TODO:location
+                                            Container(
+                                              width:MediaQuery.of(context).size.width/5,
+                                              child: Text(
+                                                "${_offer.getLocal(index)}",
+                                                style: TextStyle(
+                                                    fontSize: 12), //TODO:location
+                                              ),
                                             ),
                                           ],
                                         ),
                                         SizedBox(
                                           height: 10,
                                         ),
-                                        Text(
-                                          "Ship", //TODO:Status Accept
-                                          style: TextStyle(
-                                              color: Colors.yellowAccent.shade200,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20.0),
-                                        ),
+                                        Container(
+                                          width: 180,
+                                          child: Row(children: [
+                                            Text(
+                                              "Shipped", //TODO:Status Accept
+                                              style: TextStyle(
+                                                  color: Colors.yellowAccent.shade200,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 12.0),
+                                            ),
+                                            SizedBox(width: 5,),
+                                            Container(
+                                              height: 20,
+                                              width: 90,
+                                              child: RaisedButton(
+                                                onPressed: () {},
+                                                child: Text(
+                                                  "Cancel offer",
+                                                  style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 10.0,
+                                                      color: Colors.white),
+                                                ),
+                                                // minWidth: 28.0,
+                                                // height: 26.0,
+                                                color: Colors.green.shade200,
+                                                splashColor: Colors.green,
+                                                shape: StadiumBorder(),
+                                              ),
+                                            ),
+
+                                          ],),
+                                        )
+
                                       ],
                                     )
                                   ],

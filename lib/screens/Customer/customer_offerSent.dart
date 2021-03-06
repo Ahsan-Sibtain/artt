@@ -15,6 +15,8 @@ class _SentOrdersState extends State<SentOrders> {
   OfferData _offer = OfferData();
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
         backgroundColor: Colors.white,
         body: Padding(
@@ -35,7 +37,8 @@ class _SentOrdersState extends State<SentOrders> {
                             padding: const EdgeInsets.all(5.0),
                             decoration: BoxDecoration(
                                 color: Colors.grey.shade200,
-                                border: Border.all(color: Colors.grey)),
+                                // border: Border.all(color: Colors.grey)
+                            ),
                             child: Column(
                               children: [
                                 Row(
@@ -77,81 +80,57 @@ class _SentOrdersState extends State<SentOrders> {
                                         ),
                                       ],
                                     ),
-// Row(
-//   children: [
-//     InkWell(
-//         splashColor: Colors.red,
-//         highlightColor: Colors.red,
-//         child: FaIcon(
-//             FontAwesomeIcons.whatsapp),
-//         onTap: () {}),
-//     InkWell(
-//         splashColor: Colors.red,
-//         highlightColor: Colors.red,
-//         child:
-//             FaIcon(FontAwesomeIcons.phone),
-//         onTap: () {}),
-//     InkWell(
-//         splashColor: Colors.red,
-//         highlightColor: Colors.red,
-//         child: Icon(Icons.email),
-//         onTap: () {}),
-//
-// ],
-// ),
-                                    Row(
+
+                                    Column(
                                       children: [
-                                        Column(
+                                        Row(
                                           children: [
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  'offered you  ',
-                                                  style: kLoginText,
-                                                ),
-                                                Text(
-                                                  "${_offer.getOffer(index)}", //TODO: OFFER
-                                                  style: TextStyle(
-                                                      fontSize: 20,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                )
-                                              ],
+                                            Text(
+                                              'offered you  ',
+                                              style: kLoginText,
+                                            ),
+                                            Text(
+                                              "${_offer.getOffer(index)}", //TODO: OFFER
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  fontWeight:
+                                                      FontWeight.bold),
+                                            )
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: height/80,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              EvaIcons.clock,
+                                              color: Colors.grey,
+                                              size: 18,
+                                            ),
+                                            Text(
+                                              "${_offer.getDate(index)}",
+                                              style: TextStyle(
+                                                  fontSize:
+                                                      12), //TODO: date
                                             ),
                                             SizedBox(
-                                              height: 5.0,
+                                              width: 10.0,
                                             ),
-                                            Row(
-                                              children: [
-                                                Icon(
-                                                  EvaIcons.clock,
-                                                  color: Colors.grey,
-                                                ),
-                                                Text(
-                                                  "${_offer.getDate(index)}",
-                                                  style: TextStyle(
-                                                      fontSize:
-                                                          12), //TODO: date
-                                                ),
-                                                SizedBox(
-                                                  width: 10.0,
-                                                ),
-                                                Text(
-                                                  "${_offer.getHours(index)}",
-                                                  style: TextStyle(
-                                                      fontSize:
-                                                          12), //ToDO:hours
-                                                )
-                                              ],
-                                            ),
+                                            Text(
+                                              "${_offer.getHours(index)}",
+                                              style: TextStyle(
+                                                  fontSize:
+                                                      12), //ToDO:hours
+                                            )
                                           ],
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ],
                                 ),
                                 SizedBox(
-                                  height: 5,
+                                  height: height/90,
                                 ),
                                 Divider(
                                   thickness: 2.0,
@@ -159,11 +138,11 @@ class _SentOrdersState extends State<SentOrders> {
                                 Row(
                                   children: [
                                     Container(
-                                      height: 170.0,
-                                      width: 180.0,
+                                      height: height/4,
+                                      width: 160.0,
                                       child: Card(
                                         color: Colors.grey.shade100,
-                                        elevation: 5,
+                                        elevation: 0,
 //margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
@@ -179,9 +158,11 @@ class _SentOrdersState extends State<SentOrders> {
                                                     fontWeight: FontWeight.bold)
 //CardTitleTxtStyle,
                                                 ),
+
                                             Container(
+
                                               height: 120,
-                                              width: 180.0,
+                                              width: 170.0,
                                               decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.only(),
@@ -205,7 +186,7 @@ class _SentOrdersState extends State<SentOrders> {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 8,
+                                      width: width/80,
                                     ),
                                     Column(
                                       crossAxisAlignment:
@@ -213,12 +194,13 @@ class _SentOrdersState extends State<SentOrders> {
                                       children: [
                                         Row(
                                           children: [
-                                            Icon(Icons.payment_outlined),
+                                            Icon(Icons.payment_outlined,size: 18,),
                                             SizedBox(
-                                              width: 10,
+                                              width: 5,
                                             ),
                                             Text(
-                                              "${_offer.getPayment(index)}", //TODO:Payment Method
+                                              "${_offer.getPayment(index)}",
+                                              style: TextStyle(fontSize: 10),//TODO:Payment Method
                                             )
                                           ],
                                         ),
@@ -227,12 +209,13 @@ class _SentOrdersState extends State<SentOrders> {
                                         ),
                                         Row(
                                           children: [
-                                            FaIcon(FontAwesomeIcons.bus),
+                                            FaIcon(FontAwesomeIcons.bus,size: 18,),
                                             SizedBox(
-                                              width: 10,
+                                              width: 5,
                                             ),
                                             Text(
-                                              "${_offer.getDelivery(index)}", //TODO:DElivery
+                                              "${_offer.getDelivery(index)}",
+                                              style: TextStyle(fontSize: 12),//TODO:DElivery
                                             ),
                                           ],
                                         ),
@@ -241,26 +224,53 @@ class _SentOrdersState extends State<SentOrders> {
                                         ),
                                         Row(
                                           children: [
-                                            Icon(Icons.location_on),
+                                            Icon(Icons.location_on,size: 18,),
                                             SizedBox(
-                                              width: 10,
+                                              width: 5,
                                             ),
-                                            Text(
-                                              "${_offer.getLocal(index)}",
-                                              style: TextStyle(
-                                                  fontSize: 12), //TODO:location
+                                            Container(
+                                              width:MediaQuery.of(context).size.width/5,
+                                              child: Text(
+                                                "${_offer.getLocal(index)}",
+                                                style: TextStyle(
+                                                    fontSize: 12), //TODO:location
+                                              ),
                                             ),
                                           ],
                                         ),
                                         SizedBox(
                                           height: 10,
                                         ),
-                                        Text(
-                                          "Offer Sent", //TODO:Status Offer sent
-                                          style: TextStyle(
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20.0),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              "Offer Sent", //TODO:Status Offer sent
+                                              style: TextStyle(
+                                                  color: Colors.grey,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 18.0),
+                                            ),
+                                            SizedBox(width: 5,),
+                                            Container(
+                                              height: 20,
+                                              width: 90,
+                                              child: RaisedButton(
+                                                onPressed: () {},
+                                                child: Text(
+                                                  "Cancel offer",
+                                                  style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 10.0,
+                                                      color: Colors.white),
+                                                ),
+                                                // minWidth: 28.0,
+                                                // height: 26.0,
+                                                color: Colors.green.shade200,
+                                                splashColor: Colors.green,
+                                                shape: StadiumBorder(),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     )

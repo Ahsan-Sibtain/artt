@@ -1,4 +1,5 @@
 import 'package:art/component/button.dart';
+import 'package:art/component/colors.dart';
 import 'package:art/component/constant.dart';
 import 'package:flutter/material.dart';
 
@@ -86,10 +87,17 @@ class _ChangePasswordState extends State<ChangePassword> {
               height: 40.0,
             ),
             Button(
-              onPress: () {},
-              buttonTitle: "Update Password",
-              colour: Color(0xFFFF3D3A3A),
-            )
+              text: Text(
+                "Update Password",
+                style: TextStyle(),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, "/naviga");
+              },
+              color: buttonBackgroundColor,
+              focusColor: buttonColor1,
+              disbaleColor: buttonColor2,
+            ),
           ],
         ),
       ),

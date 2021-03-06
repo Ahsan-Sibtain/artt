@@ -1,9 +1,10 @@
 import 'package:art/component/button.dart';
+import 'package:art/component/colors.dart';
 import 'package:art/component/constant.dart';
 import 'package:art/component/imagelist.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 class ReSubmit extends StatefulWidget {
   @override
   _ReSubmitState createState() => _ReSubmitState();
@@ -86,25 +87,79 @@ class _ReSubmitState extends State<ReSubmit> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Column(
                       children: [
                         Row(
-                          children: [
-                            Text(
-                              "Ahsan", //TODO: NAME
-                              style: TextStyle(fontSize: 15.0),
-                            ),
-                          ],
-                        ),
+                            mainAxisAlignment:
+                            MainAxisAlignment
+                                .spaceBetween,
+                            children: [
+                              Text(
+                                "Abstract painting on canvas", //TODO: Art Name
+                                style: TextStyle(
+                                    fontWeight:
+                                    FontWeight.bold),
+                              ),
+                              Text(
+                                "\$500", //TODO:PRice
+                                style: TextStyle(
+                                    fontWeight:
+                                    FontWeight.bold,
+                                    fontSize: 20.0),
+                              )
+                            ]),
                         Row(
+                          mainAxisAlignment:
+                          MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              "Price: 155 \$ ", //TODO: PRice
-                              style: TextStyle(fontSize: 15.0),
+                            Row(
+                              children: [
+                                Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.white60,
+                                      boxShadow:
+                                      kElevationToShadow[
+                                      6],
+                                      borderRadius:
+                                      BorderRadius
+                                          .circular(30.0),
+                                    ),
+                                    //TODO:Profile image
+                                    child: CircleAvatar(
+                                      radius: 15.0,
+                                      backgroundImage: AssetImage(
+                                          "images/ava.png"),
+                                    )),
+                                SizedBox(
+                                  width: 5.0,
+                                ),
+                                Text(
+                                    "Mr. XXX YYY", //TODO: User Name
+                                    style: TextStyle(
+                                        fontWeight:
+                                        FontWeight.bold)),
+
+                                SizedBox(
+                                  width: 10.0,
+                                ),
+                              ],
                             ),
+                            Row(
+                              children: [
+                                Text(
+                                  "2"
+                                      " Items Left", //TODO: Remaining Items
+                                  style: TextStyle(
+                                      color: Colors.red,
+                                      fontSize: 12.0,
+                                      fontWeight:
+                                      FontWeight.bold),
+                                )
+                              ],
+                            )
                           ],
                         ),
+
                       ],
                     ),
                     Divider(thickness: 1.0),
@@ -165,11 +220,17 @@ class _ReSubmitState extends State<ReSubmit> {
                       height: 20.0,
                     ),
                     Button(
-                      //TODO: Re-Submit Button
-                      onPress: () {},
-                      colour: Color(0xFFFF3D3A3A),
-                      buttonTitle: "Re-Submit",
-                    )
+                      text: Text(
+                        "Re-Submit",
+                        style: TextStyle(),
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/naviga");
+                      },
+                      color: buttonBackgroundColor,
+                      focusColor: buttonColor1,
+                      disbaleColor: buttonColor2,
+                    ),
                   ]),
             ),
 

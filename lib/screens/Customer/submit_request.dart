@@ -1,4 +1,5 @@
 import 'package:art/component/button.dart';
+import 'package:art/component/colors.dart';
 import 'package:art/component/constant.dart';
 import 'package:art/component/imagelist.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -23,20 +24,22 @@ class _RequestState extends State<Request> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
-              radius: 25.0,
+              radius: 20.0,
               backgroundImage: AssetImage("images/ava.png"), //TODO: Profile Pic
             ),
             SizedBox(
               width: 5.0,
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "oil painting", //TODO: CATEGORY
+                  "Oil painting",
+                  style: TextStyle(fontSize: 16),//TODO: CATEGORY
                 ),
                 Text(
                   "Ahsan",
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 14),
                 ), //TODO: USer NAme
               ],
             )
@@ -92,9 +95,9 @@ class _RequestState extends State<Request> {
                   Text("Email", style: CardSubTitleStyle),
                   SizedBox(height: 8.0),
                   Container(
-                      padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                      width: 330.0,
-                      height: 50.0,
+                      padding: EdgeInsets.only(left: 14.0, right: 10.0),
+                      width: MediaQuery.of(context).size.width/1.1,
+                      height: 45.0,
                       decoration: BoxDecoration(
                         boxShadow: kElevationToShadow[1],
                         borderRadius: BorderRadius.circular(40),
@@ -139,9 +142,9 @@ class _RequestState extends State<Request> {
                         width: 10.0,
                       ),
                       Container(
-                          padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                          width: 250.0,
-                          height: 50.0,
+                          padding: EdgeInsets.only(left: 14.0, right: 10.0),
+                          width: MediaQuery.of(context).size.width/1.5,
+                          height: 45.0,
                           decoration: BoxDecoration(
                             boxShadow: kElevationToShadow[1],
                             borderRadius: BorderRadius.circular(40),
@@ -152,7 +155,7 @@ class _RequestState extends State<Request> {
                           //TODO: Phone Number
                           child: TextFormField(
                             keyboardType: TextInputType.number,
-                            decoration: kTxtField.copyWith(hintText: ' '),
+                            decoration: kTxtField.copyWith(hintText: '923235077538 '),
                           )),
                     ],
                   ),
@@ -193,6 +196,7 @@ class _RequestState extends State<Request> {
                   SliderTheme(
                     //TODO: PRICE SLIDER
                     data: SliderTheme.of(context).copyWith(
+
                       inactiveTrackColor: Color(0xFF8D8E98),
                       activeTrackColor: Colors.grey[200],
                       thumbColor: Color(0xFFFF3D3A3A),
@@ -219,7 +223,7 @@ class _RequestState extends State<Request> {
                   Container(
                       padding: EdgeInsets.only(left: 10.0, right: 10.0),
                       width: 330.0,
-                      height: 200.0,
+                      height: 150.0,
                       decoration: BoxDecoration(
                         boxShadow: kElevationToShadow[1],
                         borderRadius: BorderRadius.circular(10),
@@ -237,17 +241,17 @@ class _RequestState extends State<Request> {
                     height: 20.0,
                   ),
                   Button(
-                    onPress: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ReSubmit(),
-                        ),
-                      );
+                    text: Text(
+                      "Submit Request",
+                      style: TextStyle(),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/naviga");
                     },
-                    buttonTitle: "Submit Request", //TODO: SUBMIT REQUEST BUTTON
-                    colour: Color(0xFFFF3D3A3A),
-                  )
+                    color: buttonBackgroundColor,
+                    focusColor: buttonColor1,
+                    disbaleColor: buttonColor2,
+                  ),
                 ],
               ),
             ),

@@ -38,67 +38,67 @@ class _CustomerBottomBarState extends State<CustomerBottomBar> {
         backgroundColor: Colors.white,
         key: _scaffoldKey,
         body: _pageOptions[_selectedTab],
-        bottomNavigationBar: SizedBox(
-          height: 60,
-          child: BottomNavigationBar(
-            backgroundColor: Colors.white,
-            unselectedItemColor: Colors.white,
-            type: BottomNavigationBarType.fixed,
-            currentIndex: _selectedTab,
-            selectedItemColor: Colors.black,
-            elevation: 2,
-            onTap: (int index) {
-              setState(() {
-                _selectedTab = index;
-              });
-            },
-            items: [
-              BottomNavigationBarItem(
-                label: '',
-                icon: Icon(
-                  Icons.home,
-                  size: 30.0,
-                  color: Colors.grey,
-                ),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white,
+          unselectedItemColor: Colors.grey,
+          // selectedFontSize: 24,
+          // selectedFontSize: 24,
+          // unselectedFontSize: 22,
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _selectedTab,
+          selectedItemColor: Colors.greenAccent[300],
+          elevation: 0,
+          onTap: (int index) {
+            setState(() {
+              _selectedTab = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              label: '',
+              icon: Icon(
+                Icons.home,
+                // size: 22.0,
+                // color: Colors.grey,
               ),
-              BottomNavigationBarItem(
-                label: '',
-                icon: Icon(
-                  EvaIcons.shoppingBag,
-                  size: 30.0,
-                  color: Colors.grey,
-                ),
-                //title: Text('Chat'),
+            ),
+            BottomNavigationBarItem(
+              label: '',
+              icon: Icon(
+                EvaIcons.shoppingBag,
+                // size: 22.0,
+                // color: Colors.grey,
               ),
-              BottomNavigationBarItem(
-                label: '',
-                // onTap: () {},
-                icon: Icon(
-                  Icons.search,
-                  size: 30.0,
-                  color: Colors.grey,
-                ),
+              //title: Text('Chat'),
+            ),
+            BottomNavigationBarItem(
+              label: '',
+              // onTap: () {},
+              icon: Icon(
+                Icons.search,
+                // size: 22.0,
+                // color: Colors.grey,/
               ),
-              BottomNavigationBarItem(
-                label: '',
-                // onTap: () {},
-                icon: Icon(
-                  Icons.notifications,
-                  size: 30.0,
-                  color: Colors.grey,
-                ),
+            ),
+            BottomNavigationBarItem(
+              label: '',
+              // onTap: () {},
+              icon: Icon(
+                Icons.notifications,
+                // size: 22.0,
+                // color: Colors.grey,
               ),
-              BottomNavigationBarItem(
-                label: '',
-                // onTap: () {},
-                icon: Icon(
-                  Icons.perm_identity,
-                  size: 30.0,
-                  color: Colors.grey,
-                ),
+            ),
+            BottomNavigationBarItem(
+              label: '',
+              // onTap: () {},
+              icon: Icon(
+                Icons.perm_identity,
+                // size: 22.0,
+                // color: Colors.grey,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -7,7 +7,7 @@ const kTxtField = InputDecoration(
   hintStyle: TextStyle(
     color: Color(0xFFFFA0A0A0),
     // fontFamily: 'Poppin',
-    fontSize: 15.0,
+    fontSize: 14.0,
   ),
 );
 const kLoginText = TextStyle(
@@ -23,6 +23,8 @@ const kTextStyleHeader = TextStyle(
 const kCategoryText = TextStyle(
     color: Color(0xFFFF3D3A3A), fontWeight: FontWeight.bold, fontSize: 15.0);
 const CardSubTitleStyle =
-    TextStyle(fontSize: 12.0, color: Colors.grey, fontWeight: FontWeight.bold);
+    TextStyle(fontSize: 10.0, color: Colors.grey, fontWeight: FontWeight.bold);
+const myTitleStyle =
+    TextStyle(fontSize: 10.0, color: Colors.black, fontWeight: FontWeight.w500);
 const CardTitleTxtStyle =
     TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold);

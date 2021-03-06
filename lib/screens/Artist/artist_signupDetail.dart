@@ -1,6 +1,8 @@
+import 'package:art/component/CustomTextField.dart';
 import 'package:art/component/button.dart';
+import 'package:art/component/colors.dart';
 import 'package:art/component/constant.dart';
-import 'artist_signUp.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,160 +14,187 @@ class ArtistSignUpDetail extends StatefulWidget {
 class _ArtistSignUpDetailState extends State<ArtistSignUpDetail> {
   @override
   Widget build(BuildContext context) {
+    bool _obscureText = true;
+    void _toggle() {
+      setState(() {
+        _obscureText = !_obscureText;
+      });
+    }
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 40.0),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 180.0,
-                child: Image(
-                  image: AssetImage('images/logo.png'), //TODO: Logo Image
+        child: Center(
+          child: Container(
+            width: width / 1.2,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: height / 30,
                 ),
-              ),
-              //*******************LOGIN IN TO ART FOR you TEXT
-              Row(
-                children: [
-                  RichText(
-                    textAlign: TextAlign.left,
-                    text: TextSpan(
-                      children: <TextSpan>[
-                        TextSpan(text: 'Login in to ', style: kTextSpanGray),
-                        TextSpan(text: 'Art', style: kTextSpanBlue),
-                        TextSpan(
-                          text: 'Lik',
-                          style: kTextSpanRed,
-                        ),
-                      ],
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 200.0,
+                  child: Image(
+                    image: AssetImage('images/logo.png'), //TODO: Logo Image
+                  ),
+                ),
+                //*******************LOGIN IN TO ART FOR you TEXT
+                RichText(
+                  textAlign: TextAlign.left,
+                  text: TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: 'SignUp in to ',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: height / 40,
+                              fontWeight: FontWeight.w500)),
+                      TextSpan(
+                          text: 'Art',
+                          style: TextStyle(
+                              color: Color(0xff05a2fc),
+                              fontSize: height / 40,
+                              fontWeight: FontWeight.w500)),
+                      TextSpan(
+                        text: 'Lik',
+                        style: TextStyle(
+                            color: Colors.redAccent,
+                            fontSize: height / 40,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: height / 60),
+                //************* EMAIL TEXT
+                Text("Full Name",
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w600,
+                        fontSize: height / 50)),
+                SizedBox(height: height / 60),
+                CustomTextField(
+                  hinttext: "Enter Your Name",
+                  obscureText: false,
+                  textInputType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: height / 60),
+
+                //************* PASSWORD TEXT
+                Text("Email",
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w600,
+                        fontSize: height / 50)),
+                SizedBox(height: height / 60),
+                CustomTextField(
+
+                  hinttext: "· · · · · · · · · ·",
+                  obscureText: _obscureText,
+                  textInputType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: height / 60),
+                Text("City",
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w600,
+                        fontSize: height / 50)),
+                SizedBox(height: height / 60),
+                CustomTextField(
+                  hinttext: "Enter your City",
+                  obscureText: false,
+                  textInputType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: height / 60),
+
+                //************* PASSWORD TEXT
+                Text("Password",
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w600,
+                        fontSize: height / 50)),
+                SizedBox(height: height / 60),
+                CustomTextField(
+                  iconButton: IconButton(
+                    icon: Icon(Icons.remove_red_eye,  color: Color(0xff05a2fc),),
+                    iconSize: 18,
+                    color: basicColorShopper,
+                    onPressed: _toggle,
+                  ),
+                  hinttext: "· · · · · · · · · ·",
+                  obscureText: _obscureText,
+                  textInputType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: height / 60),
+                Text("Confirm Password",
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w600,
+                        fontSize: height / 50)),
+                SizedBox(height: height / 60),
+                CustomTextField(
+                  iconButton: IconButton(
+                    icon: Icon(Icons.remove_red_eye,  color: Color(0xff05a2fc), ),
+                    iconSize: 18,
+                    color: basicColorShopper,
+                    onPressed: _toggle,
+                  ),
+                  hinttext: "· · · · · · · · · ·",
+                  obscureText: _obscureText,
+                  textInputType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: height / 60),
+
+
+                //TODO: LOGIN BUTTON
+
+                SizedBox(height: height / 60),
+                Button(
+                  text: Text(
+                    "Sign Up",
+                    style: TextStyle(),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/artistBottomBar");
+                  },
+                  color: buttonBackgroundColor,
+                  focusColor: buttonColor2,
+                  disbaleColor: buttonColor2,
+                ),
+                SizedBox(height: height / 60),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Already  have an Account ?",
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 15.0),
-              //************* NAME TEXT Filed
-
-              Text("Fullname", style: kLoginText),
-              SizedBox(height: 8.0),
-              Container(
-                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                  width: 330.0,
-                  height: 50.0,
-                  decoration: BoxDecoration(
-                    boxShadow: kElevationToShadow[1],
-                    borderRadius: BorderRadius.circular(40),
-                    color: Colors.white,
-                  ),
-
-                  //***** ENTER NAME TEXT FIELD
-                  //TODO: ENTER  NAME
-                  child: TextFormField(
-                    decoration: kTxtField.copyWith(hintText: 'Enter your Name'),
-                  )),
-              SizedBox(height: 15.0),
-
-              Text("Email", style: kLoginText),
-              SizedBox(height: 8.0),
-              Container(
-                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                  width: 330.0,
-                  height: 50.0,
-                  decoration: BoxDecoration(
-                    boxShadow: kElevationToShadow[1],
-                    borderRadius: BorderRadius.circular(40),
-                    color: Colors.white,
-                  ),
-
-                  //***** ENTER EMAIL TEXT FIELD
-                  //TODO:ENTER  EMAIL
-                  child: TextFormField(
-                    keyboardType: TextInputType.emailAddress,
-                    decoration:
-                        kTxtField.copyWith(hintText: 'Enter your Email'),
-                  )),
-
-              SizedBox(height: 15.0),
-
-              Text("City", style: kLoginText),
-              SizedBox(height: 8.0),
-              Container(
-                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                  width: 330.0,
-                  height: 50.0,
-                  decoration: BoxDecoration(
-                    boxShadow: kElevationToShadow[1],
-                    borderRadius: BorderRadius.circular(40),
-                    color: Colors.white,
-                  ),
-
-                  //***** ENTER CITY TEXT FIELD
-                  //TODO: ENTER CITY
-                  child: TextFormField(
-                    decoration: kTxtField.copyWith(hintText: 'Enter your City'),
-                  )),
-
-              SizedBox(height: 15.0),
-
-              //************* PASSWORD TEXT
-              Text("Password", style: kLoginText),
-              SizedBox(height: 8.0),
-              Container(
-                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                  width: 330.0,
-                  height: 50.0,
-                  decoration: BoxDecoration(
-                    boxShadow: kElevationToShadow[1],
-                    borderRadius: BorderRadius.circular(40),
-                    color: Colors.white,
-                  ),
-
-                  //***** ENTER PASSWORD TEXT FIELD
-                  //TODO: ENTER PASSWORD
-                  child: TextFormField(
-                    obscureText: true,
-                    decoration: kTxtField.copyWith(hintText: '************'),
-                  )),
-              SizedBox(height: 15.0),
-
-              //************* PASSWORD TEXT
-              Text("Confirm Password", style: kLoginText),
-              SizedBox(height: 8.0),
-              Container(
-                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                  width: 330.0,
-                  height: 50.0,
-                  decoration: BoxDecoration(
-                    boxShadow: kElevationToShadow[1],
-                    borderRadius: BorderRadius.circular(40),
-                    color: Colors.white,
-                  ),
-
-                  //***** ENTER PASSWORD TEXT FIELD
-                  //TODO: CONFIRM PASSWORD
-                  child: TextFormField(
-                    obscureText: true,
-                    decoration: kTxtField.copyWith(hintText: '************'),
-                  )),
-              SizedBox(
-                height: 20.0,
-              ), //TODO: SignUp BUTTON
-              Button(
-                onPress: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SignUp(),
+                    SizedBox(
+                      width: width / 70,
                     ),
-                  );
-                },
-                buttonTitle: "SignUp",
-                colour: Color(0xFFFF3D3A3A),
-              ),
-            ],
+                    InkWell(
+                      onTap: ()
+                      {
+                        Navigator.pushNamed(context, "/artistLogin");
+                      },
+                      child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            'Login',
+                            style: TextStyle(
+                                color: Color(0xff05a2fc),
+                                fontSize: height / 50,
+                                fontWeight: FontWeight.w600),
+                          )),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

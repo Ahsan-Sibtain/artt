@@ -1,23 +1,25 @@
 import 'package:art/component/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:art/screens/country_select.dart';
+
 import 'package:art/component/button.dart';
 import 'select_user.dart';
 
-class LanguageChange extends StatefulWidget {
+class CountrySelect extends StatefulWidget {
   // @override
-  _LanguageChangeState createState() => _LanguageChangeState();
+  _CountrySelectState createState() => _CountrySelectState();
 }
 
-class _LanguageChangeState extends State<LanguageChange> {
+class _CountrySelectState extends State<CountrySelect> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Container(
-       color: Colors.white,
-        child: Center(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Container(
+
+          width: width/1.2,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -26,7 +28,7 @@ class _LanguageChangeState extends State<LanguageChange> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 200.0,
+                height: height/3,
                 child: Image(
                   image: AssetImage('images/logo.png'), //TODO: Logo Image
                 ),
@@ -35,14 +37,14 @@ class _LanguageChangeState extends State<LanguageChange> {
                 height: height/20,
               ),
               Text(
-                "Select Language",
+                "Select Country",
                 style: TextStyle(
                     color: Color(0xFFFF3D3A3A),
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w500,
                     fontSize: height/30),
               ),
               SizedBox(
-                height: height/60,
+                height: height/40,
               ),
               Container(
                   padding: EdgeInsets.only(left: 12.0, right: 12.0),
@@ -61,14 +63,14 @@ class _LanguageChangeState extends State<LanguageChange> {
                           alignedDropdown: true,
                           child: DropdownButton<String>(
                             isDense: true,
-                            hint: new Text("Select Language"),
-                            value: _myselection,
+                            hint: new Text("Select Country"),
+                            value: _selectedCountry,
                             onChanged: (String newValue){
                               setState(() {
-                                _myselection = newValue;
+                                _selectedCountry = newValue;
                               });
                             },
-                            items: flags.map((Map map) {
+                            items: countries.map((Map map) {
                               return DropdownMenuItem<String>(
                                 value: map ["name"].toString(),
                                 child: Row(
@@ -98,8 +100,8 @@ class _LanguageChangeState extends State<LanguageChange> {
                   "Continue",
                   style: TextStyle(),
                 ),
-                onPressed: (){
-                  Navigator.pushNamed(context, "/countrySelect");
+                onPressed: () {
+                  Navigator.pushNamed(context, "/selectUser");
                 },
                 color: buttonBackgroundColor,
                 focusColor: buttonColor1,
@@ -112,28 +114,29 @@ class _LanguageChangeState extends State<LanguageChange> {
     );
   }
 
-  String _myselection;
-  List<Map> flags = [
+  String _selectedCountry;
+  List<Map> countries = [
     {
       "id": 0,
-      "image": "flags/english.png",
-      "name": 'English'
+      "image": "flags/morocco.png",
+      "name": 'Morocco'
     },{
       "id": 1,
-      "image": "flags/morocco.png",
-      "name": 'Arabic'
+      "image": "flags/algeria.png",
+      "name": 'Algeria'
     },{
       "id": 2,
-      "image": "flags/french.png",
-      "name": 'Francais'
+      "image": "flags/libya.png",
+      "name": 'Libya'
+    },{
+      "id": 3,
+      "image": "flags/tunisia.png",
+      "name": 'Tunisia'
+    },{
+      "id": 4,
+      "image": "flags/egypt.png",
+      "name": 'Egypt'
     },
-
-    // const Item('Morocco', Image(image: AssetImage("flags/morocco.png"),)),
-    // const Item('Algeria', Image(image: AssetImage("flags/algeria.png"),)),
-    // const Item('Libya', Image(image: AssetImage("flags/libya.png"),)),
-    // const Item('Tunisia', Image(image: AssetImage("flags/tunisia.png"),)),
-    // const Item('Egypt', Image(image: AssetImage("flags/egypt.png"),)),
-
   ];
 
 }

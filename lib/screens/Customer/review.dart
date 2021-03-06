@@ -1,4 +1,5 @@
 import 'package:art/component/button.dart';
+import 'package:art/component/colors.dart';
 import 'package:art/component/constant.dart';
 import 'package:art/component/imagelist.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -158,10 +159,17 @@ class _WriteReviewState extends State<WriteReview> {
                       ),
                       //TODO: SUBMIT BUTTON
                       Button(
-                        onPress: () {},
-                        colour: Color(0xFFFF3D3A3A),
-                        buttonTitle: "Submit",
-                      )
+                        text: Text(
+                          "Submit",
+                          style: TextStyle(),
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/naviga");
+                        },
+                        color: buttonBackgroundColor,
+                        focusColor: buttonColor1,
+                        disbaleColor: buttonColor2,
+                      ),
                     ]),
               ),
 

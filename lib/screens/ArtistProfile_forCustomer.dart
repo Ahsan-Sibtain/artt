@@ -3,55 +3,47 @@ import 'package:flutter/material.dart';
 import 'package:art/component/constant.dart';
 import 'package:art/component/flat_Button.dart';
 
-class ArtistProfile extends StatefulWidget {
+class ArtistProfile_forCustomer extends StatefulWidget {
   @override
   _ArtistProfileState createState() => _ArtistProfileState();
 }
 
-class _ArtistProfileState extends State<ArtistProfile> {
+class _ArtistProfileState extends State<ArtistProfile_forCustomer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.camera_alt_rounded),
-        backgroundColor: Color(0xFFFF3D3A3A),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Color(0xFFFF3D3A3A),
-        title: Text("Ahsan"), //TODO: USer NAme
+        title: Text("Artist Profile"), //TODO: USer NAme
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
+        padding: const EdgeInsets.only(left: 5.0, right: 5.0, top: 20.0),
         child: Column(
+
           children: [
-            Center(
-              child: CircleAvatar(
-                radius: 40.0,
-                backgroundImage:
-                    AssetImage("images/ava.png"), //TODO: Profile Pic
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              "AHSAN", //TODO: User Name
-              style: kTextStyleHeader,
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
+
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "Pakistan", //TODO: Country
-                  style: TextStyle(color: Colors.grey, fontSize: 15.0),
+
+                Center(
+                  child: CircleAvatar(
+                    radius: 18.0,
+                    backgroundImage:
+                    AssetImage("images/ava.png"), //TODO: Profile Pic
+                  ),
                 ),
+
+                SizedBox(
+                  width: 5.0,
+                ),
+                Text(
+                  "AHSAN", //TODO: User Name
+                  style: kTextStyleHeader,
+                ),
+
+
                 SizedBox(
                   width: 5.0,
                 ),
@@ -64,82 +56,75 @@ class _ArtistProfileState extends State<ArtistProfile> {
                   color: Colors.orange,
                   size: 15.0,
                 ),
+                Text(
+                  "(223)", //TODO: Rating
+                  style: TextStyle(color: Colors.grey, fontSize: 15.0),
+                ),
+                SizedBox(
+                  width: 20.0,
+                ),
+
+                Column(
+                  children: [
+                    Text(
+                      "123", //TODO: Show number Views
+                      style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12),
+                    ),
+                    SizedBox(
+                      height: 5.0,
+                    ),
+                    Text(
+                      "Views",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.grey,fontSize: 10),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  width: 5.0,
+                ),
+                Column(
+                  children: [
+                    Text(
+                      "122", //TODO: Show Numbers of offers
+                      style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12),
+                    ),
+                    SizedBox(
+                      height: 5.0,
+                    ),
+                    Text(
+                      "Offers",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.grey,fontSize: 10),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  width: 5.0,
+                ),
+                Column(
+                  children: [
+                    Text(
+                      "13", //TODO: Show Number of order
+                      style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12),
+                    ),
+                    SizedBox(
+                      height: 5.0,
+                    ),
+                    Text(
+                      "Orders",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.grey,fontSize: 10),
+                    ),
+                  ],
+                ),
+
+
               ],
             ),
-            SizedBox(
-              height: 20.0,
-            ),
-            ListTile(
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      Text(
-                        "223k +", //TODO: Show Earning
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Text(
-                        "Earning",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        "123", //TODO: Show number Views
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Text(
-                        "Views",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        "122", //TODO: Show Numbers of offers
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Text(
-                        "Offers",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        "13", //TODO: Show Number of order
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Text(
-                        "Orders",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+
+
+
             SizedBox(
               height: 20.0,
             ),
@@ -177,35 +162,20 @@ class _ArtistProfileState extends State<ArtistProfile> {
                         ),
                         child: Column(
                           children: <Widget>[
-                            Stack(
-                              alignment: Alignment.center,
-                              children: <Widget>[
-                                Container(
-                                  //margin: EdgeInsets.only(bottom: 8.0),
-                                  height: 110.0, width: 165.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(12.0),
-                                      topRight: Radius.circular(12.0),
-                                    ),
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                          "imageSlide/p1.jpg"), //TODO: ART IMAGE
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
+                            Container(
+                              //margin: EdgeInsets.only(bottom: 8.0),
+                              height: 110.0, width: 165.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(12.0),
+                                  topRight: Radius.circular(12.0),
                                 ),
-                                //**** CAMERA ICON FOR UPLOAD PROFILE PIC
-                                Positioned(
-                                    top: 10.0,
-                                    left: 5.0,
-                                    child: FilterFlatButton(
-                                      onpressed: () {}, //TODO: EDIT BUTTON
-                                      colour: Colors.grey.withOpacity(0.5),
-                                      TxtColor: Colors.white,
-                                      ButtonTitle: "Edit",
-                                    )),
-                              ],
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                      "imageSlide/p1.jpg"), //TODO: ART IMAGE
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
                             SizedBox(
                               height: 5.0,

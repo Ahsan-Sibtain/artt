@@ -33,6 +33,11 @@ dependencies:
   shared_preferences: ^0.5.12+4
   dashed_container: ^1.0.1
   font_awesome_flutter: ^8.11.0
+  flutter_range_slider: any
+  flex_color_picker: any
+  checkbox_grouped: any
+  pin_code_fields: any
+  photo_view: any
 
 
 
@@ -59,6 +64,7 @@ flutter:
   assets:
     - images/
     - imageSlide/
+    - flags/.
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

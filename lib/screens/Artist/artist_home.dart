@@ -13,6 +13,9 @@ class _HomeScreenState extends State<HomeScreen> {
   OfferData _offer = OfferData();
   @override
   Widget build(BuildContext context) {
+
+    double height= MediaQuery.of(context).size.height;
+    double width= MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: Colors.white,
         body: Padding(
@@ -71,32 +74,39 @@ class _HomeScreenState extends State<HomeScreen> {
                                               style: CardSubTitleStyle,
                                               textAlign: TextAlign.center,
                                             ),
+                                            SizedBox(height: 5.0),
+                                            Row(
+                                              children: [
+                                                InkWell(
+                                                    splashColor: Colors.red,
+                                                    highlightColor: Colors.red,
+                                                    child: FaIcon(
+                                                        FontAwesomeIcons.whatsapp,
+                                                    color: Colors.green,
+                                                    size: 14,),
+                                                    onTap: () {}),
+                                                SizedBox(width: 5.0),
+                                                InkWell(
+                                                    splashColor: Colors.red,
+                                                    highlightColor: Colors.red,
+                                                    child:
+                                                    FaIcon(FontAwesomeIcons.phone,size: 12,color: Colors.blueGrey,),
+                                                    onTap: () {}),
+                                                SizedBox(width: 5.0),
+                                                InkWell(
+                                                    splashColor: Colors.red,
+                                                    highlightColor: Colors.red,
+                                                    child: Icon(Icons.email,size: 14,color: Colors.redAccent[100],),
+                                                    onTap: () {}),
+
+                                              ],
+                                            ),
+
                                           ],
                                         ),
                                       ],
                                     ),
-                                    // Row(
-                                    //   children: [
-                                    //     InkWell(
-                                    //         splashColor: Colors.red,
-                                    //         highlightColor: Colors.red,
-                                    //         child: FaIcon(
-                                    //             FontAwesomeIcons.whatsapp),
-                                    //         onTap: () {}),
-                                    //     InkWell(
-                                    //         splashColor: Colors.red,
-                                    //         highlightColor: Colors.red,
-                                    //         child:
-                                    //             FaIcon(FontAwesomeIcons.phone),
-                                    //         onTap: () {}),
-                                    //     InkWell(
-                                    //         splashColor: Colors.red,
-                                    //         highlightColor: Colors.red,
-                                    //         child: Icon(Icons.email),
-                                    //         onTap: () {}),
-                                    //
-                                    // ],
-                                    // ),
+
                                     Row(
                                       children: [
                                         Column(
@@ -124,6 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 Icon(
                                                   EvaIcons.clock,
                                                   color: Colors.grey,
+                                                  size: 18,
                                                 ),
                                                 Text(
                                                   "${_offer.getDate(index)}",
@@ -154,108 +165,124 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Divider(
                                   thickness: 2.0,
                                 ),
-                                Row(
-                                  children: [
-                                    Container(
-                                      height: 170.0,
-                                      width: 180.0,
-                                      child: Card(
-                                        color: Colors.grey.shade100,
-                                        elevation: 5,
-                                        //margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                        ),
-                                        child: Column(
-                                          children: <Widget>[
-                                            Text(
-                                                "${_offer.getArt(index)}", //TODO: Art NAme
-                                                style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.bold)
-                                                //CardTitleTxtStyle,
-                                                ),
-                                            Container(
-                                              height: 120,
-                                              width: 180.0,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.only(),
-                                                image: DecorationImage(
-                                                  image: AssetImage(
-                                                    "${_offer.getArtImage(index)}", //TODO: ART IMAGE
+                                Container(
+                                  width: width,
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        height: 120.0,
+                                        width: 120.0,
+                                        child: Card(
+                                          color: Colors.grey.shade100,
+                                          elevation: 5,
+                                          //margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          child: Column(
+                                            children: <Widget>[
+                                              SizedBox(
+                                                height: 5,
+                                              ),
+                                              Text(
+                                                  "${_offer.getArt(index)}", //TODO: Art NAme
+                                                  style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontSize: 11,
+                                                      fontWeight: FontWeight.bold)
+                                                  //CardTitleTxtStyle,
                                                   ),
-                                                  fit: BoxFit.cover,
+                                              SizedBox(
+                                                height: 5,
+                                              ),
+                                              Container(
+                                                height: 70,
+                                                // width: 160.0,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.only(),
+                                                  image: DecorationImage(
+                                                    image: AssetImage(
+                                                      "${_offer.getArtImage(index)}", //TODO: ART IMAGE
+                                                    ),
+                                                    fit: BoxFit.cover,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                            Text(
-                                                "${_offer.getPrice(index)}", //TODO: PRICEE
-                                                style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 15,
-                                                    fontWeight:
-                                                        FontWeight.bold)),
-                                          ],
+                                              SizedBox(
+                                                height: 2,
+                                              ),
+                                              Text(
+                                                  "${_offer.getPrice(index)}", //TODO: PRICEE
+                                                  style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontSize: 11,
+                                                      fontWeight:
+                                                          FontWeight.bold)),
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      width: 8,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Icon(Icons.payment_outlined),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            Text(
-                                              "${_offer.getPayment(index)}", //TODO:Payment Method
-                                            )
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        Row(
-                                          children: [
-                                            FaIcon(FontAwesomeIcons.bus),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            Text(
-                                              "${_offer.getDelivery(index)}", //TODO:DElivery
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        Row(
-                                          children: [
-                                            Icon(Icons.location_on),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            Text(
-                                              "${_offer.getLocal(index)}",
-                                              style: TextStyle(
-                                                  fontSize: 12), //TODO:location
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        Row(
-                                          children: [
-                                            FlatButton(
+                                      SizedBox(
+                                        width: 8,
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Icon(Icons.payment_outlined,size: 18,),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "${_offer.getPayment(index)}",
+                                                style: myTitleStyle,//TODO:Payment Method
+                                              )
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Row(
+                                            children: [
+                                              FaIcon(FontAwesomeIcons.bus,size: 18,),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "${_offer.getDelivery(index)}",
+                                                style: myTitleStyle,//TODO:DElivery
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Row(
+                                            children: [
+                                              Icon(Icons.location_on,size: 18,),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Container(
+                                                width: width/3,
+                                                child: Text(
+                                                  "${_offer.getLocal(index)}",
+                                                  style: myTitleStyle//TODO:location
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+
+                                          Container(
+                                            height: 26,
+                                            child: RaisedButton(
                                               onPressed: () {},
                                               child: Text(
                                                 "Accept",
@@ -264,16 +291,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     fontSize: 12.0,
                                                     color: Colors.white),
                                               ),
-                                              minWidth: 28.0,
-                                              height: 26.0,
+                                              // minWidth: 28.0,
+                                              // height: 26.0,
                                               color: Colors.green.shade200,
                                               splashColor: Colors.green,
                                               shape: StadiumBorder(),
-                                            ), //TODO: ACCEPT BUTTOn
-                                            SizedBox(
-                                              width: 8.0,
                                             ),
-                                            FlatButton(
+                                          ),
+                                          SizedBox(
+                                            height: 5,
+                                          ),//TODO: ACCEPT BUTTOn
+                                          Container(
+                                            height: 26,
+                                            child: RaisedButton(
                                               onPressed: () {},
                                               child: Text(
                                                 "Decline",
@@ -282,31 +312,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     fontSize: 12.0,
                                                     color: Colors.white),
                                               ),
-                                              minWidth: 28.0,
-                                              height: 26.0,
                                               color:
                                                   Colors.orangeAccent.shade200,
                                               splashColor: Colors.orange,
                                               shape: StadiumBorder(),
                                             ),
-                                            // InkWell(
-                                            //     splashColor: Colors.red,
-                                            //     highlightColor: Colors.red,
-                                            //     child: Text(
-                                            //       "Decline",
-                                            //       style: TextStyle(
-                                            //           color: Colors.red,
-                                            //           fontWeight:
-                                            //               FontWeight.bold,
-                                            //           fontSize: 20.0),
-                                            //     ),
-                                            //     onTap:
-                                            //         () {}), //TODO: DECLINE BUTTON
-                                          ],
-                                        )
-                                      ],
-                                    )
-                                  ],
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 )
                               ],
                             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:art/component/flat_Button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../offer_Detail.dart';
 import 'package:art/component/list_data.dart';
@@ -39,7 +40,7 @@ class _OrderCancelState extends State<OrderCancel> {
                               children: [
                                 Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  MainAxisAlignment.spaceBetween,
                                   children: [
                                     Row(
                                       children: <Widget>[
@@ -48,7 +49,7 @@ class _OrderCancelState extends State<OrderCancel> {
                                               color: Colors.white60,
                                               boxShadow: kElevationToShadow[6],
                                               borderRadius:
-                                                  BorderRadius.circular(25.0),
+                                              BorderRadius.circular(25.0),
                                             ),
                                             child: CircleAvatar(
                                               radius: 20.0,
@@ -59,7 +60,7 @@ class _OrderCancelState extends State<OrderCancel> {
                                         SizedBox(width: 5.0),
                                         Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               "${_offer.getName(index)}", //TODO: NAME
@@ -113,7 +114,7 @@ class _OrderCancelState extends State<OrderCancel> {
                                                   style: TextStyle(
                                                       fontSize: 20,
                                                       fontWeight:
-                                                          FontWeight.bold),
+                                                      FontWeight.bold),
                                                 )
                                               ],
                                             ),
@@ -125,12 +126,13 @@ class _OrderCancelState extends State<OrderCancel> {
                                                 Icon(
                                                   EvaIcons.clock,
                                                   color: Colors.grey,
+                                                  size: 18,
                                                 ),
                                                 Text(
                                                   "${_offer.getDate(index)}",
                                                   style: TextStyle(
                                                       fontSize:
-                                                          12), //TODO: date
+                                                      12), //TODO: date
                                                 ),
                                                 SizedBox(
                                                   width: 10.0,
@@ -139,7 +141,7 @@ class _OrderCancelState extends State<OrderCancel> {
                                                   "${_offer.getHours(index)}",
                                                   style: TextStyle(
                                                       fontSize:
-                                                          12), //ToDO:hours
+                                                      12), //ToDO:hours
                                                 )
                                               ],
                                             ),
@@ -159,14 +161,14 @@ class _OrderCancelState extends State<OrderCancel> {
                                   children: [
                                     Container(
                                       height: 170.0,
-                                      width: 180.0,
+                                      width: 160.0,
                                       child: Card(
                                         color: Colors.grey.shade100,
                                         elevation: 5,
 //margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
-                                              BorderRadius.circular(12.0),
+                                          BorderRadius.circular(12.0),
                                         ),
                                         child: Column(
                                           children: <Widget>[
@@ -177,13 +179,13 @@ class _OrderCancelState extends State<OrderCancel> {
                                                     fontSize: 15,
                                                     fontWeight: FontWeight.bold)
 //CardTitleTxtStyle,
-                                                ),
+                                            ),
                                             Container(
                                               height: 120,
-                                              width: 180.0,
+                                              width: 170.0,
                                               decoration: BoxDecoration(
                                                 borderRadius:
-                                                    BorderRadius.only(),
+                                                BorderRadius.only(),
                                                 image: DecorationImage(
                                                   image: AssetImage(
                                                     "${_offer.getArtImage(index)}", //TODO: ART IMAGE
@@ -198,7 +200,7 @@ class _OrderCancelState extends State<OrderCancel> {
                                                     color: Colors.black,
                                                     fontSize: 15,
                                                     fontWeight:
-                                                        FontWeight.bold)),
+                                                    FontWeight.bold)),
                                           ],
                                         ),
                                       ),
@@ -208,16 +210,17 @@ class _OrderCancelState extends State<OrderCancel> {
                                     ),
                                     Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Row(
                                           children: [
-                                            Icon(Icons.payment_outlined),
+                                            Icon(Icons.payment_outlined,size: 18,),
                                             SizedBox(
-                                              width: 10,
+                                              width: 5,
                                             ),
                                             Text(
-                                              "${_offer.getPayment(index)}", //TODO:Payment Method
+                                              "${_offer.getPayment(index)}",
+                                              style: TextStyle(fontSize: 10),//TODO:Payment Method
                                             )
                                           ],
                                         ),
@@ -226,12 +229,13 @@ class _OrderCancelState extends State<OrderCancel> {
                                         ),
                                         Row(
                                           children: [
-                                            FaIcon(FontAwesomeIcons.bus),
+                                            FaIcon(FontAwesomeIcons.bus,size: 18,),
                                             SizedBox(
-                                              width: 10,
+                                              width: 5,
                                             ),
                                             Text(
-                                              "${_offer.getDelivery(index)}", //TODO:DElivery
+                                              "${_offer.getDelivery(index)}",
+                                              style: TextStyle(fontSize: 12),//TODO:DElivery
                                             ),
                                           ],
                                         ),
@@ -240,26 +244,32 @@ class _OrderCancelState extends State<OrderCancel> {
                                         ),
                                         Row(
                                           children: [
-                                            Icon(Icons.location_on),
+                                            Icon(Icons.location_on,size: 18,),
                                             SizedBox(
-                                              width: 10,
+                                              width: 5,
                                             ),
-                                            Text(
-                                              "${_offer.getLocal(index)}",
-                                              style: TextStyle(
-                                                  fontSize: 12), //TODO:location
+                                            Container(
+                                              width:MediaQuery.of(context).size.width/5,
+                                              child: Text(
+                                                "${_offer.getLocal(index)}",
+                                                style: TextStyle(
+                                                    fontSize: 12), //TODO:location
+                                              ),
                                             ),
                                           ],
                                         ),
                                         SizedBox(
                                           height: 10,
                                         ),
-                                        Text(
-                                          "You declined this offer on "+ _offer.getDate(index), //TODO:Status Cancel
-                                          style: TextStyle(
-                                              color: Colors.red,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 8.0),
+                                        Container(
+                                          width:MediaQuery.of(context).size.width/3.5,
+                                          child: Text(
+                                            "You declined this offer on "+ _offer.getDate(index), //TODO:Status Cancel
+                                            style: TextStyle(
+                                                color: Colors.red,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 8.0),
+                                          ),
                                         ),
                                       ],
                                     )

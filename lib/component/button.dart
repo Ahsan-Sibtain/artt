@@ -2,30 +2,37 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
-  Button({this.icon, @required this.onPress, this.buttonTitle, this.colour});
 
-  final IconData icon;
-  final Function onPress;
-  final String buttonTitle;
-  final Color colour;
+
+  Button({@required this.onPressed, this.text,this.focusColor,this.disbaleColor,this.color});
+  final GestureTapCallback onPressed;
+  final Text text;
+  final Color focusColor, disbaleColor,color;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 10.0),
-      child: FlatButton(
-        onPressed: onPress,
-        child: Text(
-          buttonTitle,
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 18.0, color: Colors.white),
+    return Container(
+      width: MediaQuery.of(context).size.width/1.2,
+      height: MediaQuery.of(context).size.height/16,
+      child: RaisedButton(
+        elevation: 0,
+        focusColor: focusColor,
+        disabledColor: disbaleColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+          // side: BorderSide(
+          //   color: button1,
+          // )
         ),
-        minWidth: MediaQuery.of(context).size.width,
-        height: 55.0,
-        color: colour,
-        splashColor: Colors.black,
-        shape: StadiumBorder(),
+        color: color,
+        textColor: Colors.white,
+        padding: EdgeInsets.all(8.0),
+        onPressed: onPressed,
+
+
+        child: text,
       ),
     );
   }
 }
+
