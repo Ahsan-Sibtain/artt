@@ -10,12 +10,12 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:art/component/Chips.dart';
 
-class CustomerSearch extends StatefulWidget {
+class VisitorSearch extends StatefulWidget {
   @override
   _CustomerSearchState createState() => _CustomerSearchState();
 }
 
-class _CustomerSearchState extends State<CustomerSearch> {
+class _CustomerSearchState extends State<VisitorSearch> {
   RangeValues values = RangeValues(200, 2000);
   RangeLabels labels =RangeLabels('200', "2000");
 

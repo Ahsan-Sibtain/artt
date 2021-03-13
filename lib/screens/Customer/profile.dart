@@ -12,6 +12,10 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    double likes = 25465;
+    double views = 8787;
+    double offers = 25540;
+    double orders = 98856;
     return SafeArea(
       child: Scaffold(
           // appBar: AppBar(
@@ -25,7 +29,7 @@ class _ProfileState extends State<Profile> {
             SliverAppBar(
               backgroundColor: Colors.white,
               elevation: 5,
-              expandedHeight: 50.0,
+              expandedHeight: 40.0,
               floating: false,
               pinned: true,
               flexibleSpace: FlexibleSpaceBar(
@@ -74,7 +78,7 @@ class _ProfileState extends State<Profile> {
                           Icon(
                             Icons.star,
                             color: Colors.orange,
-                            size: 10.0,
+                            size: height/70,
                           ),
                         ],
                       ),
@@ -87,80 +91,80 @@ SizedBox(height: height/60,),
                               Column(
                                 children: [
                                   Text(
-                                    "1223", //TODO: Show likes
+                                    "$likes", //TODO: Show likes
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 12.0),
+                                        fontSize: height/55),
                                   ),
                                   SizedBox(
-                                    height: 5.0,
+                                    height: height/90,
                                   ),
                                   Text(
                                     "Likes",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.grey,
-                                        fontSize: 10.0),
+                                        fontSize: height/55),
                                   ),
                                 ],
                               ),
                               Column(
                                 children: [
                                   Text(
-                                    "123", //TODO: Show number Views
+                                    "$views", //TODO: Show number Views
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 12.0),
+                                        fontSize: height/55),
                                   ),
                                   SizedBox(
-                                    height: 5.0,
+                                    height: height/90,
                                   ),
                                   Text(
                                     "Views",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.grey,
-                                        fontSize: 10.0),
+                                        fontSize: height/55),
                                   ),
                                 ],
                               ),
                               Column(
                                 children: [
                                   Text(
-                                    "122", //TODO: Show Numbers of offers
+                                    "$offers", //TODO: Show Numbers of offers
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 12.0),
+                                        fontSize: height/55),
                                   ),
                                   SizedBox(
-                                    height: 5.0,
+                                    height: height/90,
                                   ),
                                   Text(
                                     "Offers",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.grey,
-                                        fontSize: 10.0),
+                                        fontSize: height/55),
                                   ),
                                 ],
                               ),
                               Column(
                                 children: [
                                   Text(
-                                    "13", //TODO: Show Number of order
+                                    "$orders", //TODO: Show Number of order
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 12.0),
+                                        fontSize: height/55),
                                   ),
                                   SizedBox(
-                                    height: 5.0,
+                                    height: height/90,
                                   ),
                                   Text(
                                     "Orders",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.grey,
-                                        fontSize: 10.0),
+                                        fontSize: height/55),
                                   ),
                                 ],
                               ),
@@ -173,7 +177,7 @@ SizedBox(height: height/60,),
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.grey,
-                            fontSize: 15.0),
+                            fontSize: height/35),
                       ),
                     ],
                   )
@@ -183,19 +187,21 @@ SizedBox(height: height/60,),
           ];
         },
         body: GridView.count(
-          childAspectRatio: (3 / 3),
+          childAspectRatio: (3 / 3.5),
           crossAxisCount: 2,
-          crossAxisSpacing: 5.0,
-          mainAxisSpacing: 5.0,
+          crossAxisSpacing: 2.0,
+          mainAxisSpacing: 2.0,
           shrinkWrap: true,
           children: List.generate(
             10,
             (index) {
               return Container(
-                height: 430.0,
-                width: 80.0,
+                // color: Colors.black,
+                height: 600,
+                width: 50.0,
                 child: Card(
-                  color: Colors.grey.shade100,
+                   color: Colors.grey.shade100,
+                  //color: Colors.black,
                   elevation: 5,
                   //margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
                   shape: RoundedRectangleBorder(
@@ -205,7 +211,7 @@ SizedBox(height: height/60,),
                     children: <Widget>[
                       Container(
                         //margin: EdgeInsets.only(bottom: 8.0),
-                        height: 110.0, width: 165.0,
+                        height: height/5, width: width/2,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(12.0),
@@ -218,67 +224,104 @@ SizedBox(height: height/60,),
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 5.0,
+                      // SizedBox(
+                      //   height: height/,
+                      // ),
+                      Container(
+                        // color: Colors.pink,
+                        width: width/2,
+                        height: height/40,
+                        child: ListView(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  EvaIcons.heart,
+                                  size: height/50,
+                                  color: Colors.red,
+                                ),
+                                Text(
+
+                                  "$likes", //TODO: likes
+                                  style: TextStyle(fontSize: height/60, fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: width/90,
+                            ),
+
+
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  EvaIcons.eye,
+                                  size: height/50,
+                                  color: Colors.blue,
+                                ),
+                                Text(
+                                  "$views", //TODO: VIEWS
+                                  style: TextStyle(fontSize: height/60, fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: width/90,
+                            ),
+
+
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  EvaIcons.messageCircle,
+                                  size: height/50,
+                                  color: Colors.orangeAccent,
+                                ),
+                                Text(
+                                  "$offers", //TODO:offers
+                                  style: TextStyle(fontSize: height/60, fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: width/90,
+                            ),
+
+
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  EvaIcons.star,
+                                  size: height/50,
+                                  color: Colors.yellow,
+                                ),
+                                Text(
+                                  "$offers", //TODO:offers
+                                  style: TextStyle(fontSize: height/60, fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: width/90,
+                            ),
+                          ],
+                        ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            EvaIcons.heart,
-                            size: 10.0,
-                            color: Colors.red,
-                          ),
-                          Text(
-                            "5", //TODO: likes
-                            style: TextStyle(fontSize: 12.0),
-                          ),
-                          SizedBox(
-                            width: 5.0,
-                          ),
-                          Icon(
-                            EvaIcons.eye,
-                            size: 10.0,
-                            color: Colors.blue,
-                          ),
-                          Text(
-                            "33", //TODO: VIEWS
-                            style: TextStyle(fontSize: 12.0),
-                          ),
-                          SizedBox(
-                            width: 5.0,
-                          ),
-                          Icon(
-                            EvaIcons.messageCircle,
-                            size: 10.0,
-                            color: Colors.orangeAccent,
-                          ),
-                          Text(
-                            "6", //TODO:offers
-                            style: TextStyle(fontSize: 12.0),
-                          ),
-                          SizedBox(
-                            width: 5.0,
-                          ),
-                          Icon(
-                            EvaIcons.star,
-                            size: 10.0,
-                            color: Colors.yellow,
-                          ),
-                          Text(
-                            "3.2", //TODO:offers
-                            style: TextStyle(fontSize: 12.0),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10.0),
+                      SizedBox(height: height/80),
                       Text(
                         "The Canvas", //TODO: ART NAme
                         style: TextStyle(
                             color: Colors.black, fontWeight: FontWeight.bold),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 10.0, top: 5),
+                        padding: const EdgeInsets.only(left: 10.0, top: 0.0),
                         child: Text(
                           "hello Word", //TODO: Creator Name
                           style: TextStyle(color: Colors.grey),

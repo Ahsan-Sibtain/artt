@@ -556,7 +556,7 @@ class _ArtDetailState extends State<ArtDetail> {
                       style: TextStyle(),
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, "/naviga");
+                      // Navigator.pushNamed(context, "/naviga");
                     },
                     color: buttonBackgroundColor,
                     focusColor: buttonColor1,

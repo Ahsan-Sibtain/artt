@@ -6,14 +6,15 @@ import 'package:art/component/constant.dart';
 import 'package:art/component/flat_Button.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-import 'customer_SignupDetail.dart';
+import 'artist_signupDetail.dart';
 
-class NumConfirm extends StatefulWidget {
+
+class ArtNumConfirm extends StatefulWidget {
   @override
   _NumConfirmState createState() => _NumConfirmState();
 }
 
-class _NumConfirmState extends State<NumConfirm> {
+class _NumConfirmState extends State<ArtNumConfirm> {
 
   var onTapRecognizer;
 
@@ -150,7 +151,7 @@ class _NumConfirmState extends State<NumConfirm> {
 
                           setState(() {
                             Navigator.of(context).push(
-                                MaterialPageRoute(builder: (Context) => CustomerSignUpDetail()));
+                                MaterialPageRoute(builder: (Context) => ArtistSignUpDetail()));
 
                           });
 

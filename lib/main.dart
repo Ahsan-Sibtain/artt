@@ -1,4 +1,5 @@
 import 'package:art/component/customer_BottomBar.dart';
+import 'package:art/screens/Customer/confirmation.dart';
 import 'package:art/screens/Customer/customer_SignUp.dart';
 import 'package:art/screens/Customer/customer_SignupDetail.dart';
 import 'package:art/screens/Customer/customer_login.dart';
@@ -11,6 +12,8 @@ import 'package:art/screens/Artist/artist_login.dart';
 import 'package:art/component/Artist_BottomBar.dart';
 import 'package:art/screens/Artist/artist_signUp.dart';
 import 'package:art/screens/Artist/artist_signupDetail.dart';
+import 'package:art/screens/Artist/Artconfirmation.dart';
+import 'package:art/screens/visitor/visitor_BottomBar.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,7 +35,12 @@ var routes = <String, WidgetBuilder>{
   "/customerBottomBar": (BuildContext context) => CustomerBottomBar(),
   "/selectUser": (BuildContext context) => SelectUser(),
   "/artistLogin": (BuildContext context) => ArtistLogin(),
+  "/customerLogin": (BuildContext context) => CustomerLogin(),
+  "/visitorBottom": (BuildContext context) => VisitorBottomBar(),
+
   "/artistBottomBar": (BuildContext context) => ArtistBottomBar(),
+  "/customerconfrimation": (BuildContext context) => NumConfirm(),
+  "/artConfirm": (BuildContext context) => ArtNumConfirm(),
   "/artistSignUp": (BuildContext context) => ArtistSignUp(),
   "/artistSignUpDetails": (BuildContext context) => ArtistSignUpDetail(),
 

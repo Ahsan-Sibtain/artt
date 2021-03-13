@@ -339,7 +339,8 @@ class _NewArtState extends State<NewArt> {
                 SizedBox(
                   height: 10.0,
                 ),
-                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                   Text("Availability"),
                   Switch(
                     //TODO: Availability BUTTON
@@ -379,18 +380,21 @@ class _NewArtState extends State<NewArt> {
                   ),
                 ]),
                 SizedBox(height: 15.0),
-                    Button(
-                      text: Text(
-                        "Post",
-                        style: TextStyle(),
+                    Center(
+                      child: Button(
+                        text: Text(
+                          "Post",
+                          style: TextStyle(),
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/naviga");
+                        },
+                        color: buttonBackgroundColor,
+                        focusColor: buttonColor1,
+                        disbaleColor: buttonColor2,
                       ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, "/naviga");
-                      },
-                      color: buttonBackgroundColor,
-                      focusColor: buttonColor1,
-                      disbaleColor: buttonColor2,
                     ),
+                    SizedBox(height: 15.0),
               ]),
             ),
           )),
@@ -401,14 +405,14 @@ class _NewArtState extends State<NewArt> {
     'Category 1',
     'Category 2',
     'Category 3',
-    'Category 4'
+    'Category 4',
   ]; //TODO: Country LIST
   String _selectedCategory;
   List<String> _subCountry = [
     'Sub Category 1',
     'Sub Category 2',
     'Sub Category 3',
-    'Sub Category 4'
+    'Sub Category 4',
   ]; //TODO: Country LIST
   String _selectedSubCountry;
 }

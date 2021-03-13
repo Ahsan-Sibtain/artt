@@ -18,322 +18,330 @@ class _HomeScreenState extends State<HomeScreen> {
     double width= MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: Colors.white,
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              Expanded(
-                // height: MediaQuery.of(context).size.height,
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    // scrollDirection: Axis.vertical,
+        body: Center(
+          child: Container(
+            width: width/1.05,
+            child: Column(
+              children: [
+                SizedBox(height: 10,),
+                Expanded(
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      // scrollDirection: Axis.vertical,
 //
-                    itemCount: _offer.getLength(),
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(5.0),
-                            decoration: BoxDecoration(
-                                color: Colors.grey.shade200,
-                                border: Border.all(color: Colors.grey)),
-                            child: Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: <Widget>[
-                                        Container(
-                                            decoration: BoxDecoration(
-                                              color: Colors.white60,
-                                              boxShadow: kElevationToShadow[6],
-                                              borderRadius:
-                                                  BorderRadius.circular(25.0),
-                                            ),
-                                            child: CircleAvatar(
-                                              radius: 20.0,
-                                              backgroundImage: AssetImage(
-                                                "${_offer.getImage(index)}", //TODO: Profile Image
+                      itemCount: _offer.getLength(),
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(5.0),
+                              decoration: BoxDecoration(
+
+                                  color: Colors.grey.shade200,
+                                  borderRadius: BorderRadius.all(Radius.circular(12)),
+                                  boxShadow: kElevationToShadow[4],
+                                  border: Border.all(color: Colors.white24),
+
+                              ),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: <Widget>[
+                                          Container(
+                                              decoration: BoxDecoration(
+                                                color: Colors.white60,
+                                                boxShadow: kElevationToShadow[6],
+                                                borderRadius:
+                                                BorderRadius.circular(25.0),
                                               ),
-                                            )),
-                                        SizedBox(width: 5.0),
+                                              child: CircleAvatar(
+                                                radius: 20.0,
+                                                backgroundImage: AssetImage(
+                                                  "${_offer.getImage(index)}", //TODO: Profile Image
+                                                ),
+                                              )),
+                                          SizedBox(width:width/60),
+                                          Column(
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                "${_offer.getName(index)}", //TODO: NAME
+                                                style: CardSubTitleStyle,
+                                                textAlign: TextAlign.center,
+                                              ),
+                                              // SizedBox(height: height/90),
+                                              Text(
+                                                "${_offer.getLocation(index)}", //TODO: LOCATION
+                                                style: CardSubTitleStyle1,
+                                                textAlign: TextAlign.center,
+                                              ),
+                                              SizedBox(height: 5),
+                                              Row(
+                                                children: [
+                                                  InkWell(
+                                                      splashColor: Colors.red,
+                                                      highlightColor: Colors.red,
+                                                      child: FaIcon(
+                                                        FontAwesomeIcons.whatsapp,
+                                                        color: Colors.green,
+                                                        size: height/50,),
+                                                      onTap: () {}),
+                                                  SizedBox(width: width/80),
+                                                  InkWell(
+                                                      splashColor: Colors.red,
+                                                      highlightColor: Colors.red,
+                                                      child:
+                                                      FaIcon(FontAwesomeIcons.phone,   size: height/50,color: Colors.blueGrey,),
+                                                      onTap: () {}),
+                                                  SizedBox(width: width/80),
+                                                  InkWell(
+                                                      splashColor: Colors.red,
+                                                      highlightColor: Colors.red,
+                                                      child: Icon(Icons.email,   size: height/50,color: Colors.redAccent[100],),
+                                                      onTap: () {}),
+
+                                                ],
+                                              ),
+
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+
+                                      Row(
+                                        children: [
+                                          Column(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    EvaIcons.clock,
+                                                    color: Colors.grey,
+                                                    size: height/45,
+                                                  ),
+                                                  Text(
+                                                    "${_offer.getDate(index)}",
+                                                    style: TextStyle(
+                                                        fontSize:
+                                                        height/65), //TODO: date
+                                                  ),
+                                                  SizedBox(
+                                                    width: width/70,
+                                                  ),
+                                                  Text(
+                                                    "${_offer.getHours(index)}",
+                                                    style: TextStyle(
+                                                        fontSize:
+                                                        height/65), //ToDO:hours
+                                                  )
+                                                ],
+                                              ),
+                                              // SizedBox(
+                                              //   height: height/80,
+                                              // ),
+
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    'offered you  ',
+                                                    style: TextStyle(color: Colors.grey, fontSize: height/50, fontWeight: FontWeight.bold),
+                                                  ),
+                                                  Text(
+                                                    "${_offer.getOffer(index)}", //TODO: OFFER
+                                                    style:  TextStyle(color: Colors.black, fontSize: height/40, fontWeight: FontWeight.bold),
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  // SizedBox(
+                                  //   height: height/80,
+                                  // ),
+                                  Divider(
+                                    thickness: 2.0,
+                                  ),
+                                  Container(
+                                    width: width,
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          height: height/5,
+                                          width: width/2.6,
+                                          child: Card(
+                                            color: Colors.grey.shade100,
+                                            elevation: 5,
+                                            //margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                            ),
+                                            child: Column(
+                                              children: <Widget>[
+                                                SizedBox(
+                                                  height: height/80,
+                                                ),
+                                                Text(
+                                                    "${_offer.getArt(index)}", //TODO: Art NAme
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: height/50,
+                                                        fontWeight: FontWeight.bold)
+                                                    //CardTitleTxtStyle,
+                                                    ),
+                                                SizedBox(
+                                                  height: height/80,
+                                                ),
+                                                Container(
+                                                  height: height/9,
+                                                  // width: 160.0,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.only(),
+                                                    image: DecorationImage(
+                                                      image: AssetImage(
+                                                        "${_offer.getArtImage(index)}", //TODO: ART IMAGE
+                                                      ),
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                ),
+                                                // SizedBox(
+                                                //   height: height/,
+                                                // ),
+                                                SizedBox(
+                                                  height: 2,
+                                                ),
+                                                Text(
+                                                    "${_offer.getPrice(index)}", //TODO: PRICEE
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: height/55,
+                                                        fontWeight:
+                                                            FontWeight.bold)),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: width/60,
+                                        ),
                                         Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              "${_offer.getName(index)}", //TODO: NAME
-                                              style: CardSubTitleStyle,
-                                              textAlign: TextAlign.center,
-                                            ),
-                                            SizedBox(height: 5.0),
-                                            Text(
-                                              "${_offer.getLocation(index)}", //TODO: LOCATION
-                                              style: CardSubTitleStyle,
-                                              textAlign: TextAlign.center,
-                                            ),
-                                            SizedBox(height: 5.0),
                                             Row(
                                               children: [
-                                                InkWell(
-                                                    splashColor: Colors.red,
-                                                    highlightColor: Colors.red,
-                                                    child: FaIcon(
-                                                        FontAwesomeIcons.whatsapp,
-                                                    color: Colors.green,
-                                                    size: 14,),
-                                                    onTap: () {}),
-                                                SizedBox(width: 5.0),
-                                                InkWell(
-                                                    splashColor: Colors.red,
-                                                    highlightColor: Colors.red,
-                                                    child:
-                                                    FaIcon(FontAwesomeIcons.phone,size: 12,color: Colors.blueGrey,),
-                                                    onTap: () {}),
-                                                SizedBox(width: 5.0),
-                                                InkWell(
-                                                    splashColor: Colors.red,
-                                                    highlightColor: Colors.red,
-                                                    child: Icon(Icons.email,size: 14,color: Colors.redAccent[100],),
-                                                    onTap: () {}),
-
-                                              ],
-                                            ),
-
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-
-                                    Row(
-                                      children: [
-                                        Column(
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  'offered you  ',
-                                                  style: kLoginText,
+                                                Icon(Icons.payment_outlined,size: height/45,),
+                                                SizedBox(
+                                                  width: width/60,
                                                 ),
                                                 Text(
-                                                  "${_offer.getOffer(index)}", //TODO: OFFER
-                                                  style: TextStyle(
-                                                      fontSize: 20,
-                                                      fontWeight:
-                                                          FontWeight.bold),
+                                                  "${_offer.getPayment(index)}",
+                                                  style: TextStyle(color: Colors.black, fontSize: height/70),//TODO:Payment Method
                                                 )
                                               ],
                                             ),
                                             SizedBox(
-                                              height: 5.0,
+                                              height: 5,
                                             ),
                                             Row(
                                               children: [
-                                                Icon(
-                                                  EvaIcons.clock,
-                                                  color: Colors.grey,
-                                                  size: 18,
-                                                ),
-                                                Text(
-                                                  "${_offer.getDate(index)}",
-                                                  style: TextStyle(
-                                                      fontSize:
-                                                          12), //TODO: date
-                                                ),
+                                                FaIcon(FontAwesomeIcons.bus, size: height/45,),
                                                 SizedBox(
-                                                  width: 10.0,
+                                                  width: width/60,
                                                 ),
                                                 Text(
-                                                  "${_offer.getHours(index)}",
-                                                  style: TextStyle(
-                                                      fontSize:
-                                                          12), //ToDO:hours
-                                                )
+                                                  "${_offer.getDelivery(index)}",
+                                                  style: TextStyle(color: Colors.black, fontSize: height/70),//TODO:DElivery
+                                                ),
                                               ],
                                             ),
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.location_on,size:  height/45,),
+                                                SizedBox(
+                                                  width: width/60,
+                                                ),
+                                                Container(
+                                                  width: width/3,
+                                                  child: Text(
+                                                    "${_offer.getLocal(index)}",
+                                                    style: TextStyle(color: Colors.black,  fontSize: height/70)//TODO:location
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            SizedBox(
+                                              height: height/80,
+                                            ),
+
+                                            Container(
+                                              height: height/32,
+                                              child: RaisedButton(
+                                                onPressed: () {},
+                                                child: Text(
+                                                  "Accept",
+                                                  style: TextStyle(
+                                                      // fontWeight: FontWeight.bold,
+                                                      fontSize: height/65,
+                                                      color: Colors.white),
+                                                ),
+                                                // minWidth: 28.0,
+                                                // height: 26.0,
+                                                color: Colors.green.shade200,
+                                                splashColor: Colors.green,
+                                                shape: StadiumBorder(),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: height/80,
+                                            ),//TODO: ACCEPT BUTTOn
+                                            Container(
+                                              height: height/32,
+                                              child: RaisedButton(
+                                                onPressed: () {},
+                                                child: Text(
+                                                  "Decline",
+                                                  style: TextStyle(
+                                                      // fontWeight: FontWeight.bold,
+                                                      fontSize: height/65,
+                                                      color: Colors.white),
+                                                ),
+                                                color:
+                                                    Colors.orangeAccent.shade200,
+                                                splashColor: Colors.orange,
+                                                shape: StadiumBorder(),
+                                              ),
+                                            )
                                           ],
                                         )
                                       ],
                                     ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Divider(
-                                  thickness: 2.0,
-                                ),
-                                Container(
-                                  width: width,
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        height: 120.0,
-                                        width: 120.0,
-                                        child: Card(
-                                          color: Colors.grey.shade100,
-                                          elevation: 5,
-                                          //margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          child: Column(
-                                            children: <Widget>[
-                                              SizedBox(
-                                                height: 5,
-                                              ),
-                                              Text(
-                                                  "${_offer.getArt(index)}", //TODO: Art NAme
-                                                  style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 11,
-                                                      fontWeight: FontWeight.bold)
-                                                  //CardTitleTxtStyle,
-                                                  ),
-                                              SizedBox(
-                                                height: 5,
-                                              ),
-                                              Container(
-                                                height: 70,
-                                                // width: 160.0,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.only(),
-                                                  image: DecorationImage(
-                                                    image: AssetImage(
-                                                      "${_offer.getArtImage(index)}", //TODO: ART IMAGE
-                                                    ),
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 2,
-                                              ),
-                                              Text(
-                                                  "${_offer.getPrice(index)}", //TODO: PRICEE
-                                                  style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 11,
-                                                      fontWeight:
-                                                          FontWeight.bold)),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 8,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Icon(Icons.payment_outlined,size: 18,),
-                                              SizedBox(
-                                                width: 5,
-                                              ),
-                                              Text(
-                                                "${_offer.getPayment(index)}",
-                                                style: myTitleStyle,//TODO:Payment Method
-                                              )
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                          Row(
-                                            children: [
-                                              FaIcon(FontAwesomeIcons.bus,size: 18,),
-                                              SizedBox(
-                                                width: 5,
-                                              ),
-                                              Text(
-                                                "${_offer.getDelivery(index)}",
-                                                style: myTitleStyle,//TODO:DElivery
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                          Row(
-                                            children: [
-                                              Icon(Icons.location_on,size: 18,),
-                                              SizedBox(
-                                                width: 5,
-                                              ),
-                                              Container(
-                                                width: width/3,
-                                                child: Text(
-                                                  "${_offer.getLocal(index)}",
-                                                  style: myTitleStyle//TODO:location
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-
-                                          Container(
-                                            height: 26,
-                                            child: RaisedButton(
-                                              onPressed: () {},
-                                              child: Text(
-                                                "Accept",
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 12.0,
-                                                    color: Colors.white),
-                                              ),
-                                              // minWidth: 28.0,
-                                              // height: 26.0,
-                                              color: Colors.green.shade200,
-                                              splashColor: Colors.green,
-                                              shape: StadiumBorder(),
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),//TODO: ACCEPT BUTTOn
-                                          Container(
-                                            height: 26,
-                                            child: RaisedButton(
-                                              onPressed: () {},
-                                              child: Text(
-                                                "Decline",
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 12.0,
-                                                    color: Colors.white),
-                                              ),
-                                              color:
-                                                  Colors.orangeAccent.shade200,
-                                              splashColor: Colors.orange,
-                                              shape: StadiumBorder(),
-                                            ),
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 15.0,
-                          ),
-                        ],
-                      );
-                    }),
-              ),
-            ],
+                            SizedBox(
+                              height: height/40,
+                            ),
+                          ],
+                        );
+                      }),
+                ),
+              ],
+            ),
           ),
         ));
   }

@@ -75,32 +75,49 @@ class _ArtistSignUpState extends State<ArtistSignUp> {
                       fontWeight: FontWeight.w500)),
                   SizedBox(height: height/60),
                   Container(
-                    decoration: BoxDecoration(
-                      boxShadow: kElevationToShadow[1],
-                      borderRadius: BorderRadius.circular(40),
-                      color: Colors.white,
-                    ),
-                    width: width/1.2,
-                    child: Column(
-                      children: [
-                        //TODO: COUNTRY CODE DROP DOWN
-                        CountryCodePicker(
-                          onChanged: print,
-                          // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
-                          initialSelection: 'IT',
-
-                          showCountryOnly: true,
-                          showOnlyCountryWhenClosed: true,
-                          favorite: ['+39', 'FR'],
-
-                          showFlagDialog: true,
-                          comparator: (a, b) => b.name.compareTo(a.name),
-
-                          onInit: (code) =>
-                              print("on init ${code.dialCode} ${code.name} "),
-                        ),
-                      ],
-                    ),
+                      padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                      width: MediaQuery.of(context).size.width/1.2,
+                      height: 45.0,
+                      decoration: BoxDecoration(
+                        boxShadow: kElevationToShadow[1],
+                        borderRadius: BorderRadius.circular(40),
+                        color: Colors.white,
+                      ),
+                      //TODO: SELECT COUNTRY / REGION DROPDOWN
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(child: DropdownButtonHideUnderline(
+                            child: ButtonTheme(
+                              alignedDropdown: true,
+                              child: DropdownButton<String>(
+                                isDense: true,
+                                hint: new Text("Select Country"),
+                                value: _selectedCountry,
+                                onChanged: (String newValue){
+                                  setState(() {
+                                    _selectedCountry = newValue;
+                                  });
+                                },
+                                items: countries.map((Map map) {
+                                  return DropdownMenuItem<String>(
+                                    value: map ["name"].toString(),
+                                    child: Row(
+                                      children: <Widget>[
+                                        Image.asset(map["image"],
+                                          width: 25,),
+                                        Container(
+                                          margin: EdgeInsets.only(left: 10),
+                                          child: Text(map["name"]),
+                                        )
+                                      ],
+                                    ),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          ))
+                        ],
+                      )
                   ),
                   SizedBox(height: height/60),
                   Text("Phone Number", style: TextStyle(
@@ -129,7 +146,7 @@ class _ArtistSignUpState extends State<ArtistSignUp> {
                       style: TextStyle(),
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, "/artistSignUpDetails");
+                      Navigator.pushNamed(context, "/artConfirm");
                     },
                     color: buttonBackgroundColor,
                     focusColor: buttonColor1,
@@ -147,32 +164,34 @@ class _ArtistSignUpState extends State<ArtistSignUp> {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 15.0,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5.0),
-                    child: Column(
-                      children: [
-                        Container(
-                          width: 335.0,
-                          height: 55.0,
-                          //TODO:Signup with google
-                          child: SignInButton(Buttons.Google,
-                              shape: StadiumBorder(), onPressed: () {}),
-                        ),
-                        SizedBox(
-                          height: 10.0,
-                        ),
-                        Container(
-                          width: 335.0,
-                          height: 55.0,
-                          child:
-                          SignInButton(Buttons.Facebook, //TODO:Signup with Fb
-                              shape: StadiumBorder(),
-                              onPressed: () {}),
-                        ),
-                      ],
+                  Center(
+                    child: Container(
+                      width: width / 3,
+                      child: Row(
+                        //crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                        children: [
+                          Image(
+                            image: AssetImage(
+                              'images/gmail.png',
+                            ),
+                            height: height / 12,
+                            width: width / 10,
+                          ),
+                          Image(
+                            image: AssetImage('images/facebook.png'),
+                            height: height / 30,
+                            fit: BoxFit.cover,
+                            // width: width / 10,
+                          ),
+                          Image(
+                            image: AssetImage('images/phone.png'),
+                            height: height / 28,
+                            fit: BoxFit.cover,
+                          )
+                        ],
+                      ),
                     ),
                   ),
 
@@ -181,14 +200,15 @@ class _ArtistSignUpState extends State<ArtistSignUp> {
                   ),
                   Center(
                     child: Container(
-                      width: width / 2,
+                      width: width / 1.6,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             "Already have an account?",
                             style: TextStyle(fontWeight: FontWeight.w500),
                           ),
+                          SizedBox(width: 10,),
                           Align(
                               alignment: Alignment.centerRight,
                               child: InkWell(
@@ -218,4 +238,30 @@ class _ArtistSignUpState extends State<ArtistSignUp> {
       ),
     );
   }
+
+
+  String _selectedCountry;
+  List<Map> countries = [
+    {
+      "id": 0,
+      "image": "flags/morocco.png",
+      "name": 'Morocco'
+    },{
+      "id": 1,
+      "image": "flags/algeria.png",
+      "name": 'Algeria'
+    },{
+      "id": 2,
+      "image": "flags/libya.png",
+      "name": 'Libya'
+    },{
+      "id": 3,
+      "image": "flags/tunisia.png",
+      "name": 'Tunisia'
+    },{
+      "id": 4,
+      "image": "flags/egypt.png",
+      "name": 'Egypt'
+    },
+  ];
 }

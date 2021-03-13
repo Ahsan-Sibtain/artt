@@ -51,19 +51,22 @@ class _CustomerSignUpDetailState extends State<CustomerSignUpDetail> {
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: height / 40,
-                              fontWeight: FontWeight.w500)),
+                              // fontWeight: FontWeight.w500
+                          )),
                       TextSpan(
                           text: 'Art',
                           style: TextStyle(
                               color: Color(0xff05a2fc),
                               fontSize: height / 40,
-                              fontWeight: FontWeight.w500)),
+                              // fontWeight: FontWeight.w500
+                          )),
                       TextSpan(
                         text: 'Lik',
                         style: TextStyle(
                             color: Colors.redAccent,
                             fontSize: height / 40,
-                            fontWeight: FontWeight.w500),
+                            // fontWeight: FontWeight.w500
+                        ),
                       ),
                     ],
                   ),
@@ -73,9 +76,9 @@ class _CustomerSignUpDetailState extends State<CustomerSignUpDetail> {
                 Text("Full Name",
                     style: TextStyle(
                         color: Colors.grey,
-                        fontWeight: FontWeight.w600,
+                        // fontWeight: FontWeight.w600,
                         fontSize: height / 50)),
-                SizedBox(height: height / 60),
+                SizedBox(height: height / 90),
                 CustomTextField(
                   hinttext: "Enter Your Name",
                   obscureText: false,
@@ -87,36 +90,36 @@ class _CustomerSignUpDetailState extends State<CustomerSignUpDetail> {
                 Text("Email",
                     style: TextStyle(
                         color: Colors.grey,
-                        fontWeight: FontWeight.w600,
+                        // fontWeight: FontWeight.w600,
                         fontSize: height / 50)),
-                SizedBox(height: height / 60),
+                SizedBox(height: height / 90),
                 CustomTextField(
 
                   hinttext: "· · · · · · · · · ·",
                   obscureText: _obscureText,
                   textInputType: TextInputType.emailAddress,
                 ),
-                SizedBox(height: height / 60),
+                SizedBox(height: height / 90),
                 Text("City",
                     style: TextStyle(
                         color: Colors.grey,
-                        fontWeight: FontWeight.w600,
+                        // fontWeight: FontWeight.w600,
                         fontSize: height / 50)),
-                SizedBox(height: height / 60),
+                SizedBox(height: height / 90),
                 CustomTextField(
                   hinttext: "Enter your City",
                   obscureText: false,
                   textInputType: TextInputType.emailAddress,
                 ),
-                SizedBox(height: height / 60),
+                SizedBox(height: height / 90),
 
                 //************* PASSWORD TEXT
                 Text("Password",
                     style: TextStyle(
                         color: Colors.grey,
-                        fontWeight: FontWeight.w600,
+                        // fontWeight: FontWeight.w600,
                         fontSize: height / 50)),
-                SizedBox(height: height / 60),
+                SizedBox(height: height / 90),
                 CustomTextField(
                   iconButton: IconButton(
                     icon: Icon(Icons.remove_red_eye,  color: Color(0xff05a2fc),),
@@ -128,37 +131,19 @@ class _CustomerSignUpDetailState extends State<CustomerSignUpDetail> {
                   obscureText: _obscureText,
                   textInputType: TextInputType.emailAddress,
                 ),
-                SizedBox(height: height / 60),
-                Text("Confirm Password",
-                    style: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w600,
-                        fontSize: height / 50)),
-                SizedBox(height: height / 60),
-                CustomTextField(
-                  iconButton: IconButton(
-                    icon: Icon(Icons.remove_red_eye,  color: Color(0xff05a2fc), ),
-                    iconSize: 18,
-                    color: basicColorShopper,
-                    onPressed: _toggle,
-                  ),
-                  hinttext: "· · · · · · · · · ·",
-                  obscureText: _obscureText,
-                  textInputType: TextInputType.emailAddress,
-                ),
-                SizedBox(height: height / 60),
+                SizedBox(height: height / 90),
 
 
                 //TODO: LOGIN BUTTON
 
-                SizedBox(height: height / 60),
+                SizedBox(height: height / 20),
                 Button(
                   text: Text(
                     "Sign Up",
                     style: TextStyle(),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, "/customerBottomBar");
+                    Navigator.pushNamed(context, "/customerLogin");
                   },
                   color: buttonBackgroundColor,
                   focusColor: buttonColor2,
@@ -171,7 +156,6 @@ class _CustomerSignUpDetailState extends State<CustomerSignUpDetail> {
                   children: [
                     Text(
                       "Already  have an Account ?",
-                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
                       width: width / 70,
@@ -179,7 +163,7 @@ class _CustomerSignUpDetailState extends State<CustomerSignUpDetail> {
                     InkWell(
                       onTap: ()
                       {
-                        Navigator.pushNamed(context, "/login");
+                        Navigator.pushNamed(context, "/customerLogin");
                       },
                       child: Align(
                           alignment: Alignment.centerRight,

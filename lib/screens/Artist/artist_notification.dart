@@ -53,7 +53,7 @@ class _ArtistNotificationScreenState extends State<ArtistNotificationScreen> {
                               //TODO: Order Number and date
                               subtitle: Text(
                                 "${_notification.getMessage(index)}",
-                                textAlign: TextAlign.justify,
+                                // textAlign: TextAlign.justify,
                               ),
                             ),
                             SizedBox(

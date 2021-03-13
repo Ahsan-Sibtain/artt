@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../offer_Detail.dart';
+import '../order_Detail.dart';
+import 'artDetail.dart';
+
 class SearchResult extends StatefulWidget {
   @override
   _SearchResultState createState() => _SearchResultState();
@@ -77,6 +81,10 @@ class _SearchResultState extends State<SearchResult> {
 
                               //TODO: Detail Button
                               GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) => ArtDetail()));
+                                },
                                 child: Container(
                                   height: 25.0,
                                   width: 70.0,

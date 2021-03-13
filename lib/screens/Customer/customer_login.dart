@@ -37,8 +37,9 @@ class _CustomerLoginState extends State<CustomerLogin> {
               children: [
                 SizedBox(height: height / 15),
                 Container(
+                  // color: Colors.red,
                   width: MediaQuery.of(context).size.width,
-                  height: height / 3,
+                  height: height / 3.5,
                   child: Image(
                     image: AssetImage('images/logo.png'), //TODO: Logo Image
                   ),
@@ -93,6 +94,8 @@ class _CustomerLoginState extends State<CustomerLogin> {
                   textInputType: TextInputType.emailAddress,
                 ),
                 SizedBox(height: height / 60),
+
+
                 Align(
                     alignment: Alignment.centerRight,
                     child: InkWell(
@@ -103,7 +106,7 @@ class _CustomerLoginState extends State<CustomerLogin> {
                         'Forgot Password',
                         style: TextStyle(
                             color: Colors.grey,
-                            fontWeight: FontWeight.w600,
+                            // fontWeight: FontWeight.w600,
                             fontSize: height / 50),
                       ),
                     )),
@@ -129,28 +132,38 @@ class _CustomerLoginState extends State<CustomerLogin> {
                 Center(
                   child: Container(
                     width: width / 3,
-                    child: Row(
-                      //crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
+                    child: Column(
                       children: [
-                        Image(
-                          image: AssetImage(
-                            'images/gmail.png',
-                          ),
-                          height: height / 12,
-                          width: width / 10,
+
+                        Text(
+                          "Login Via",
+                          style: TextStyle(fontWeight: FontWeight.w500),
                         ),
-                        Image(
-                          image: AssetImage('images/facebook.png'),
-                          height: height / 20,
-                          width: width / 10,
+                        Row(
+                          //crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                          children: [
+                            Image(
+                              image: AssetImage(
+                                'images/gmail.png',
+                              ),
+                              height: height / 12,
+                              width: width / 10,
+                            ),
+                            Image(
+                              image: AssetImage('images/facebook.png'),
+                              height: height / 30,
+                              fit: BoxFit.cover,
+                              // width: width / 10,
+                            ),
+                            Image(
+                              image: AssetImage('images/phone.png'),
+                              height: height / 28,
+                              fit: BoxFit.cover,
+                            )
+                          ],
                         ),
-                        Image(
-                          image: AssetImage('images/phone.png'),
-                          height: height / 20,
-                          width: width / 10,
-                        )
                       ],
                     ),
                   ),
@@ -158,14 +171,15 @@ class _CustomerLoginState extends State<CustomerLogin> {
 
                 Center(
                   child: Container(
-                    width: width / 2.2,
+                    width: width / 1.7,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           "Don't have Account ?",
-                          style: TextStyle(fontWeight: FontWeight.w500),
+                          // style: TextStyle(fontWeight: FontWeight.w500),
                         ),
+                        SizedBox(width: 5,),
                         Align(
                             alignment: Alignment.centerRight,
                             child: InkWell(

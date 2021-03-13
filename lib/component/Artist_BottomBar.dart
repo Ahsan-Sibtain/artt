@@ -41,10 +41,12 @@ class _ArtistBottomBarState extends State<ArtistBottomBar> {
           height: 60,
           child: BottomNavigationBar(
             backgroundColor: Colors.white,
-            unselectedItemColor: Colors.white,
+            unselectedItemColor: Colors.grey,
             type: BottomNavigationBarType.fixed,
             currentIndex: _selectedTab,
-            selectedItemColor: Colors.black,
+            showSelectedLabels: true,
+            selectedLabelStyle: TextStyle(fontSize: 12,color: Color(0xFFFF3D3A3A),),
+            selectedItemColor: Color(0xFFFF3D3A3A),
             elevation: 2,
             onTap: (int index) {
               setState(() {
@@ -53,11 +55,10 @@ class _ArtistBottomBarState extends State<ArtistBottomBar> {
             },
             items: [
               BottomNavigationBarItem(
-                label: '',
+                label: 'Home',
                 icon: Icon(
                   Icons.home,
                   size: 30.0,
-                  color: Colors.grey,
                 ),
               ),
               // BottomNavigationBarItem(
@@ -70,30 +71,27 @@ class _ArtistBottomBarState extends State<ArtistBottomBar> {
               //   //title: Text('Chat'),
               // ),
               BottomNavigationBarItem(
-                label: '',
+                label: 'Add Art',
                 // onTap: () {},
                 icon: Icon(
                   Icons.add_circle,
                   size: 30.0,
-                  color: Colors.grey,
                 ),
               ),
               BottomNavigationBarItem(
-                label: '',
+                label: 'Notification',
                 // onTap: () {},
                 icon: Icon(
                   Icons.notifications,
                   size: 30.0,
-                  color: Colors.grey,
                 ),
               ),
               BottomNavigationBarItem(
-                label: '',
+                label: 'Profile',
                 // onTap: () {},
                 icon: Icon(
                   Icons.perm_identity,
                   size: 30.0,
-                  color: Colors.grey,
                 ),
               ),
             ],

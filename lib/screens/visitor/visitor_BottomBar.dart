@@ -1,29 +1,26 @@
+import 'package:art/component/customer_tab.dart';
 import 'package:art/screens/Customer/customer_Search.dart';
 import 'package:art/screens/Customer/home_customer.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:art/screens/Customer/notification.dart';
-import 'customer_tab.dart';
-
+import 'package:art/screens/visitor/visitorHome.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'package:art/screens/visitor/visitor_Search.dart';
 import 'package:art/screens/Customer/profile.dart';
 
-class CustomerBottomBar extends StatefulWidget {
+class VisitorBottomBar extends StatefulWidget {
   @override
   _CustomerBottomBarState createState() => _CustomerBottomBarState();
 }
 
-class _CustomerBottomBarState extends State<CustomerBottomBar> {
+class _CustomerBottomBarState extends State<VisitorBottomBar> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   int _selectedTab = 0;
   final _pageOptions = [
-    CustomerHome(),
-    CustomerTab(),
-    CustomerSearch(),
-    NotificationScreen(),
-    Profile(),
+    VisitorHome(),
+    VisitorSearch(),
   ];
 
   @override
@@ -61,15 +58,7 @@ class _CustomerBottomBarState extends State<CustomerBottomBar> {
                 // color: Colors.grey,
               ),
             ),
-            BottomNavigationBarItem(
-              label: 'Orders',
-              icon: Icon(
-                EvaIcons.shoppingBag,
-                // size: 22.0,
-                // color: Colors.grey,
-              ),
-              //title: Text('Chat'),
-            ),
+
             BottomNavigationBarItem(
               label: 'Search',
               // onTap: () {},
@@ -79,24 +68,7 @@ class _CustomerBottomBarState extends State<CustomerBottomBar> {
                 // color: Colors.grey,/
               ),
             ),
-            BottomNavigationBarItem(
-              label: 'Notification',
-              // onTap: () {},
-              icon: Icon(
-                Icons.notifications,
-                // size: 22.0,
-                // color: Colors.grey,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: 'Profile',
-              // onTap: () {},
-              icon: Icon(
-                Icons.perm_identity,
-                // size: 22.0,
-                // color: Colors.grey,
-              ),
-            ),
+
           ],
         ),
       ),

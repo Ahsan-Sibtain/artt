@@ -9,14 +9,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:art/component/colors.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'artDetail.dart';
 
-class CustomerHome extends StatefulWidget {
+
+class VisitorHome extends StatefulWidget {
   @override
   _CustomerHomeState createState() => _CustomerHomeState();
 }
 
-class _CustomerHomeState extends State<CustomerHome> {
+class _CustomerHomeState extends State<VisitorHome> {
   TrendingData _data = TrendingData();
 
   List<String> _options = [
@@ -115,15 +115,15 @@ class _CustomerHomeState extends State<CustomerHome> {
                           return
                               //TODO: User Profile pic and Name Round Card
                               GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      ArtistProfile_forCustomer(),
-                                ),
-                              );
-                            },
+                            // onTap: () {
+                            //   Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //       builder: (context) =>
+                            //           ArtistProfile_forCustomer(),
+                            //     ),
+                            //   );
+                            // },
                             child: RoundCard(
                               img: "${_round.getImage(index)}",
                               txt: "${_round.getName(index)}",
@@ -494,13 +494,13 @@ class _CustomerHomeState extends State<CustomerHome> {
 
                                         GestureDetector(
                                           onTap: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    ArtDetail(),
-                                              ),
-                                            );
+                                            // Navigator.push(
+                                            //   context,
+                                            //   MaterialPageRoute(
+                                            //     builder: (context) =>
+                                            //         ArtDetail(),
+                                            //   ),
+                                            // );
                                           },
                                           child: Container(
                                               width: MediaQuery.of(context)
@@ -583,28 +583,8 @@ class _CustomerHomeState extends State<CustomerHome> {
                                           children: [
                                             Row(
                                               children: [
-                                                GestureDetector(
-                                                  onTap: () {
-                                                    setState(() {
-                                                      if (_iconColor ==
-                                                          Colors.grey) {
-                                                        _iconColor = Colors.red;
-                                                      } else {
-                                                        _iconColor =
-                                                            Colors.grey;
-                                                      }
-                                                    });
-                                                  },
-                                                  child: Icon(EvaIcons.heart,
-                                                      color: _iconColor),
-                                                ),
-                                                Text(
-                                                  "${_data.getLikes(index)}",
-                                                ), //TODO Likes
 
-                                                SizedBox(
-                                                  width: 10.0,
-                                                ),
+
                                                 Icon(
                                                   EvaIcons.eyeOutline,
                                                   color: Colors.black,
@@ -617,19 +597,6 @@ class _CustomerHomeState extends State<CustomerHome> {
                                                 SizedBox(
                                                   width: 15.0,
                                                 ),
-                                                InkWell(
-                                                    splashColor:
-                                                    Colors.grey[400],
-                                                    highlightColor:
-                                                    Colors.grey[400],
-                                                    child: Image.asset("images/instaShare.png",
-                                                      color: Colors.black,
-                                                      scale: 50,
-                                                      // EvaIcons.share,
-                                                      // color: Colors.black54,
-                                                      // size: 20.0,
-                                                    ),
-                                                    onTap: () {})
                                               ],
                                             ),
 
