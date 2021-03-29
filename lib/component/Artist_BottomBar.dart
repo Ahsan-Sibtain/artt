@@ -61,15 +61,7 @@ class _ArtistBottomBarState extends State<ArtistBottomBar> {
                   size: 30.0,
                 ),
               ),
-              // BottomNavigationBarItem(
-              //   label: '',
-              //   icon: Icon(
-              //     EvaIcons.shoppingBag,
-              //     size: 30.0,
-              //     color: Colors.grey,
-              //   ),
-              //   //title: Text('Chat'),
-              // ),
+
               BottomNavigationBarItem(
                 label: 'Add Art',
                 // onTap: () {},

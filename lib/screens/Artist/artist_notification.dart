@@ -14,62 +14,70 @@ class _ArtistNotificationScreenState extends State<ArtistNotificationScreen> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFF3D3A3A),
-        title: Text("Notifications"),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Container(
-            width: width/1.1,
-            child: Column(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFFF3D3A3A),
+          iconTheme: IconThemeData(
+            color: Colors.white, //change your color here
+          ),
+          title: Text(
+            "Notifications",
+            style: TextStyle(fontSize: height / 50, color: Colors.white),
+          ),
+          centerTitle: true,
+        ),
+        body: SingleChildScrollView(
+          child: Center(
+            child: Container(
+              width: width/1.1,
+              child: Column(
 
-              children: [
-                SizedBox(height: height/70,),
-                Container(
-                  height: MediaQuery.of(context).size.height,
-                  child: ListView.builder(
-                      // scrollDirection: Axis.horizontal,
-                      itemCount: _notification.getLength(),
-                      itemBuilder: (context, index) {
-                        return Column(
-                          children: [
-                            ListTile(
-                              leading: CircleAvatar(
-                                backgroundImage: AssetImage(
-                                  "${_notification.getImage(index)}",
+                children: [
+                  SizedBox(height: height/70,),
+                  Container(
+                    height: MediaQuery.of(context).size.height,
+                    child: ListView.builder(
+                        // scrollDirection: Axis.horizontal,
+                        itemCount: _notification.getLength(),
+                        itemBuilder: (context, index) {
+                          return Column(
+                            children: [
+                              ListTile(
+                                leading: CircleAvatar(
+                                  backgroundImage: AssetImage(
+                                    "${_notification.getImage(index)}",
+                                  ),
+                                  radius: 30.0,
                                 ),
-                                radius: 30.0,
-                              ),
-                              title: Text(
-                                //TODO:ORDER STATUS
-                                "${_notification.getOrder(index)}",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
+                                title: Text(
+                                  //TODO:ORDER STATUS
+                                  "${_notification.getOrder(index)}",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
 
-                              //TODO: Order Number and date
-                              subtitle: Text(
-                                "${_notification.getMessage(index)}",
-                                // textAlign: TextAlign.justify,
+                                //TODO: Order Number and date
+                                subtitle: Text(
+                                  "${_notification.getMessage(index)}",
+                                  // textAlign: TextAlign.justify,
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 10.0,
-                            ),
-                            Divider(
-                              thickness: 2,
-                            ),
-                          ],
-                        );
-                      }),
-                ),
-                Divider(
-                  thickness: 2.0,
-                )
-              ],
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Divider(
+                                thickness: 2,
+                              ),
+                            ],
+                          );
+                        }),
+                  ),
+                  Divider(
+                    thickness: 2.0,
+                  )
+                ],
+              ),
             ),
           ),
         ),

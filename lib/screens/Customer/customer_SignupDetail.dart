@@ -76,7 +76,7 @@ class _CustomerSignUpDetailState extends State<CustomerSignUpDetail> {
                 Text("Full Name",
                     style: TextStyle(
                         color: Colors.grey,
-                        // fontWeight: FontWeight.w600,
+
                         fontSize: height / 50)),
                 SizedBox(height: height / 90),
                 CustomTextField(
@@ -90,7 +90,7 @@ class _CustomerSignUpDetailState extends State<CustomerSignUpDetail> {
                 Text("Email",
                     style: TextStyle(
                         color: Colors.grey,
-                        // fontWeight: FontWeight.w600,
+
                         fontSize: height / 50)),
                 SizedBox(height: height / 90),
                 CustomTextField(
@@ -103,7 +103,7 @@ class _CustomerSignUpDetailState extends State<CustomerSignUpDetail> {
                 Text("City",
                     style: TextStyle(
                         color: Colors.grey,
-                        // fontWeight: FontWeight.w600,
+
                         fontSize: height / 50)),
                 SizedBox(height: height / 90),
                 CustomTextField(
@@ -117,7 +117,7 @@ class _CustomerSignUpDetailState extends State<CustomerSignUpDetail> {
                 Text("Password",
                     style: TextStyle(
                         color: Colors.grey,
-                        // fontWeight: FontWeight.w600,
+
                         fontSize: height / 50)),
                 SizedBox(height: height / 90),
                 CustomTextField(

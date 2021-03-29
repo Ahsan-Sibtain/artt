@@ -173,7 +173,7 @@ class _WriteReviewState extends State<WriteReview> {
                     ]),
               ),
 
-              //************************************8
+
             ],
           ),
         ),

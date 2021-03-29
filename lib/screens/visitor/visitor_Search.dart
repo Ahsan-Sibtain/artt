@@ -5,17 +5,19 @@ import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:art/component/flat_Button.dart';
 import 'package:art/component/constant.dart';
+import 'package:art/screens/visitor/visitor_art_details.dart';
 import 'package:checkbox_grouped/checkbox_grouped.dart';
+import 'package:art/screens/visitor/visitor_search_result.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:art/component/Chips.dart';
 
-class VisitorSearch extends StatefulWidget {
+class visitorSearch extends StatefulWidget {
   @override
-  _CustomerSearchState createState() => _CustomerSearchState();
+  _visitorSearchState createState() => _visitorSearchState();
 }
 
-class _CustomerSearchState extends State<VisitorSearch> {
+class _visitorSearchState extends State<visitorSearch> {
   RangeValues values = RangeValues(200, 2000);
   RangeLabels labels =RangeLabels('200', "2000");
 
@@ -111,14 +113,14 @@ class _CustomerSearchState extends State<VisitorSearch> {
               onpressed: () {},
             ),
             Text(
-              "Filter",
+              "Filter", style: TextStyle(fontSize: height / 50, color: Colors.white),
             ),
             FilterFlatButton(
               TxtColor: Colors.white,
               ButtonTitle: "Apply", //TODO: APPLY BUTTON
               onpressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SearchResult()));
+                    MaterialPageRoute(builder: (context) => visitorSearchResult()));
               },
             ),
           ],

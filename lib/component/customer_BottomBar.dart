@@ -21,7 +21,7 @@ class _CustomerBottomBarState extends State<CustomerBottomBar> {
   final _pageOptions = [
     CustomerHome(),
     CustomerTab(),
-    CustomerSearch(),
+    customerSearch(),
     NotificationScreen(),
     Profile(),
   ];

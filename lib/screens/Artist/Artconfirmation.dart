@@ -19,7 +19,7 @@ class _NumConfirmState extends State<ArtNumConfirm> {
   var onTapRecognizer;
 
   TextEditingController textEditingController = TextEditingController();
-  // ..text = "123456";
+
 
   StreamController<ErrorAnimationType> errorController;
 
@@ -138,13 +138,7 @@ class _NumConfirmState extends State<ArtNumConfirm> {
                         errorAnimationController: errorController,
                         controller: textEditingController,
                         keyboardType: TextInputType.number,
-                        // boxShadows: [
-                        //   BoxShadow(
-                        //     offset: Offset(0, 1),
-                        //     color: Colors.black12,
-                        //     blurRadius: 10,
-                        //   )
-                        // ],
+
                         onCompleted: (v) {
                           formKey.currentState.validate();
                           // conditions for validating
@@ -155,24 +149,7 @@ class _NumConfirmState extends State<ArtNumConfirm> {
 
                           });
 
-                          //
-                          // if (currentText.length != 4 || currentText != "towtow") {
-                          //   errorController.add(ErrorAnimationType
-                          //       .shake); // Triggering error shake animation
-                          //   setState(() {
-                          //     hasError = true;
-                          //   });
-                          // } else {
-                          //   setState(() {
-                          //     hasError = false;
-                          //     scaffoldKey.currentState.showSnackBar(SnackBar(
-                          //       content: Text("Aye!!"),
-                          //       duration: Duration(seconds: 2),
-                          //     ));
-                          //     Navigator.of(context).push(
-                          //         MaterialPageRoute(builder: (Context) => vaultScreen()));
-                          //   });
-                          // }
+
                         },
                         // onTap: () {
                         //   print("Pressed");

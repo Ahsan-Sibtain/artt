@@ -1,12 +1,13 @@
-import 'package:art/component/customer_tab.dart';
+
 import 'package:art/screens/Customer/customer_Search.dart';
-import 'package:art/screens/Customer/home_customer.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:flutter/material.dart';
-import 'package:art/screens/Customer/notification.dart';
-import 'package:art/screens/visitor/visitorHome.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:art/screens/visitor/visitor_Search.dart';
+
+import 'package:flutter/material.dart';
+
+import 'package:art/screens/visitor/visitorHome.dart';
+
+
 import 'package:art/screens/Customer/profile.dart';
 
 class VisitorBottomBar extends StatefulWidget {
@@ -20,7 +21,7 @@ class _CustomerBottomBarState extends State<VisitorBottomBar> {
   int _selectedTab = 0;
   final _pageOptions = [
     VisitorHome(),
-    VisitorSearch(),
+    visitorSearch(),
   ];
 
   @override

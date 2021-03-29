@@ -24,12 +24,12 @@ class _OrderCancelState extends State<OrderCancel> {
             width: width / 1.05,
             child: Column(
               children: [
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Expanded(
                   child: ListView.builder(
                       shrinkWrap: true,
-// scrollDirection: Axis.vertical,
-//
                       itemCount: _offer.getLength(),
                       itemBuilder: (context, index) {
                         return Column(
@@ -38,7 +38,8 @@ class _OrderCancelState extends State<OrderCancel> {
                               padding: const EdgeInsets.all(5.0),
                               decoration: BoxDecoration(
                                 color: Colors.grey.shade200,
-                                borderRadius: BorderRadius.all(Radius.circular(12)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12)),
                                 boxShadow: kElevationToShadow[4],
                                 border: Border.all(color: Colors.white24),
                               ),
@@ -46,16 +47,17 @@ class _OrderCancelState extends State<OrderCancel> {
                                 children: [
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Row(
                                         children: <Widget>[
                                           Container(
                                               decoration: BoxDecoration(
                                                 color: Colors.white60,
-                                                boxShadow: kElevationToShadow[6],
+                                                boxShadow:
+                                                    kElevationToShadow[6],
                                                 borderRadius:
-                                                BorderRadius.circular(25.0),
+                                                    BorderRadius.circular(25.0),
                                               ),
                                               child: CircleAvatar(
                                                 radius: 20.0,
@@ -66,7 +68,7 @@ class _OrderCancelState extends State<OrderCancel> {
                                           SizedBox(width: 5.0),
                                           Column(
                                             crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                                CrossAxisAlignment.start,
                                             children: [
                                               Text(
                                                 "${_offer.getName(index)}", //TODO: NAME
@@ -79,12 +81,10 @@ class _OrderCancelState extends State<OrderCancel> {
                                                 style: CardSubTitleStyle1,
                                                 textAlign: TextAlign.center,
                                               ),
-
                                             ],
                                           ),
                                         ],
                                       ),
-
                                       Row(
                                         children: [
                                           Column(
@@ -94,38 +94,43 @@ class _OrderCancelState extends State<OrderCancel> {
                                                   Icon(
                                                     EvaIcons.clock,
                                                     color: Colors.grey,
-                                                    size: height/45,
+                                                    size: height / 45,
                                                   ),
                                                   Text(
                                                     "${_offer.getDate(index)}",
                                                     style: TextStyle(
-                                                        fontSize:
-                                                        height/65), //TODO: date
+                                                        fontSize: height /
+                                                            65), //TODO: date
                                                   ),
                                                   SizedBox(
-                                                    width: width/70,
+                                                    width: width / 70,
                                                   ),
                                                   Text(
                                                     "${_offer.getHours(index)}",
                                                     style: TextStyle(
-                                                        fontSize:
-                                                        height/65), //ToDO:hours
+                                                        fontSize: height /
+                                                            65), //ToDO:hours
                                                   )
                                                 ],
                                               ),
-                                              // SizedBox(
-                                              //   height: height/80,
-                                              // ),
 
                                               Row(
                                                 children: [
                                                   Text(
                                                     'Your Offer  ',
-                                                    style: TextStyle(color: Colors.grey, fontSize: height/50, fontWeight: FontWeight.bold),
+                                                    style: TextStyle(
+                                                        color: Colors.grey,
+                                                        fontSize: height / 50,
+                                                        fontWeight:
+                                                            FontWeight.bold),
                                                   ),
                                                   Text(
                                                     "${_offer.getOffer(index)}", //TODO: OFFER
-                                                    style:  TextStyle(color: Colors.black, fontSize: height/40, fontWeight: FontWeight.bold),
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: height / 40,
+                                                        fontWeight:
+                                                            FontWeight.bold),
                                                   )
                                                 ],
                                               ),
@@ -135,45 +140,45 @@ class _OrderCancelState extends State<OrderCancel> {
                                       ),
                                     ],
                                   ),
-
                                   Divider(
                                     thickness: 2.0,
                                   ),
                                   Row(
                                     children: [
                                       Container(
-                                        height: height/5,
-                                        width: width/2.6,
+                                        height: height / 5,
+                                        width: width / 2.6,
                                         child: Card(
                                           color: Colors.grey.shade100,
                                           elevation: 5,
                                           //margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
-                                            BorderRadius.circular(12.0),
+                                                BorderRadius.circular(12.0),
                                           ),
                                           child: Column(
                                             children: <Widget>[
                                               SizedBox(
-                                                height: height/80,
+                                                height: height / 80,
                                               ),
                                               Text(
                                                   "${_offer.getArt(index)}", //TODO: Art NAme
                                                   style: TextStyle(
                                                       color: Colors.black,
-                                                      fontSize: height/50,
-                                                      fontWeight: FontWeight.bold)
-                                                //CardTitleTxtStyle,
-                                              ),
+                                                      fontSize: height / 50,
+                                                      fontWeight:
+                                                          FontWeight.bold)
+
+                                                  ),
                                               SizedBox(
-                                                height: height/80,
+                                                height: height / 80,
                                               ),
                                               Container(
-                                                height: height/9,
+                                                height: height / 9,
                                                 // width: 160.0,
                                                 decoration: BoxDecoration(
                                                   borderRadius:
-                                                  BorderRadius.only(),
+                                                      BorderRadius.only(),
                                                   image: DecorationImage(
                                                     image: AssetImage(
                                                       "${_offer.getArtImage(index)}", //TODO: ART IMAGE
@@ -182,9 +187,7 @@ class _OrderCancelState extends State<OrderCancel> {
                                                   ),
                                                 ),
                                               ),
-                                              // SizedBox(
-                                              //   height: height/,
-                                              // ),
+
                                               SizedBox(
                                                 height: 2,
                                               ),
@@ -192,28 +195,35 @@ class _OrderCancelState extends State<OrderCancel> {
                                                   "${_offer.getPrice(index)}", //TODO: PRICEE
                                                   style: TextStyle(
                                                       color: Colors.black,
-                                                      fontSize: height/55,
+                                                      fontSize: height / 55,
                                                       fontWeight:
-                                                      FontWeight.bold)),
+                                                          FontWeight.bold)),
                                             ],
                                           ),
                                         ),
                                       ),
                                       SizedBox(
-                                        width: width/80,
+                                        width: width / 80,
                                       ),
                                       Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Row(
                                             children: [
-                                              Icon(Icons.payment_outlined,size: height/45,),
+                                              Icon(
+                                                Icons.payment_outlined,
+                                                size: height / 45,
+                                              ),
                                               SizedBox(
-                                                width: width/60,
+                                                width: width / 60,
                                               ),
                                               Text(
                                                 "${_offer.getPayment(index)}",
-                                                style: TextStyle(color: Colors.black, fontSize: height/70),//TODO:Payment Method
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: height /
+                                                        70), //TODO:Payment Method
                                               )
                                             ],
                                           ),
@@ -222,13 +232,19 @@ class _OrderCancelState extends State<OrderCancel> {
                                           ),
                                           Row(
                                             children: [
-                                              FaIcon(FontAwesomeIcons.bus, size: height/45,),
+                                              FaIcon(
+                                                FontAwesomeIcons.bus,
+                                                size: height / 45,
+                                              ),
                                               SizedBox(
-                                                width: width/60,
+                                                width: width / 60,
                                               ),
                                               Text(
                                                 "${_offer.getDelivery(index)}",
-                                                style: TextStyle(color: Colors.black, fontSize: height/70),//TODO:DElivery
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: height /
+                                                        70), //TODO:DElivery
                                               ),
                                             ],
                                           ),
@@ -237,33 +253,37 @@ class _OrderCancelState extends State<OrderCancel> {
                                           ),
                                           Row(
                                             children: [
-                                              Icon(Icons.location_on,size:  height/45,),
+                                              Icon(
+                                                Icons.location_on,
+                                                size: height / 45,
+                                              ),
                                               SizedBox(
-                                                width: width/60,
+                                                width: width / 60,
                                               ),
                                               Container(
-                                                width: width/3,
+                                                width: width / 3,
                                                 child: Text(
                                                     "${_offer.getLocal(index)}",
-                                                    style: TextStyle(color: Colors.black,  fontSize: height/70)//TODO:location
-                                                ),
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: height /
+                                                            70) //TODO:location
+                                                    ),
                                               ),
                                             ],
                                           ),
                                           SizedBox(
-                                            height: height/80,
+                                            height: height / 80,
                                           ),
-
                                         ],
-
                                       )
                                     ],
                                   ),
                                   SizedBox(
-                                    height: height/70,
+                                    height: height / 70,
                                   ),
                                   Container(
-                                   width: width/1.2,
+                                    width: width / 1.2,
                                     child: Center(
                                       child: Text(
                                         "You declined this offer on " +
@@ -271,16 +291,15 @@ class _OrderCancelState extends State<OrderCancel> {
                                                 index), //TODO:Status Cancel
                                         style: TextStyle(
                                             color: Colors.red,
-                                            fontSize: height/60),
+                                            fontSize: height / 60),
                                       ),
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-
                             SizedBox(
-                              height: height/60,
+                              height: height / 60,
                             ),
                           ],
                         );

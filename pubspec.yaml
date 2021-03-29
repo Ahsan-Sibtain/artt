@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   country_code_picker: ^1.6.2
   flutter_signin_button: ^1.1.0
   carousel_slider: ^2.3.1
@@ -38,6 +39,7 @@ dependencies:
   checkbox_grouped: any
   pin_code_fields: any
   photo_view: any
+
 
 
 

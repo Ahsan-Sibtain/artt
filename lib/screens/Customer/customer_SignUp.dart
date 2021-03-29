@@ -27,8 +27,7 @@ class _CustomerSignUpState extends State<CustomerSignUp> {
       ],
       localizationsDelegates: [
         CountryLocalizations.delegate,
-        // GlobalMaterialLocalizations.delegate,
-        // GlobalWidgetsLocalizations.delegate,
+
       ],
       home: Scaffold(
         backgroundColor: Colors.white,
@@ -47,7 +46,7 @@ class _CustomerSignUpState extends State<CustomerSignUp> {
                       image: AssetImage('images/logo.png'), //TODO: Logo Image
                     ),
                   ),
-                  //*******************JOIN IN TO ART FOR you TEXT
+
                   RichText(
                     textAlign: TextAlign.left,
                     text: TextSpan(
@@ -171,7 +170,7 @@ class _CustomerSignUpState extends State<CustomerSignUp> {
 
 
                   Row(
-                    //crossAxisAlignment: CrossAxisAlignment.center,
+
                     mainAxisAlignment: MainAxisAlignment.center,
 
                     children: [

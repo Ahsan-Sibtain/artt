@@ -6,6 +6,7 @@ const kTxtField = InputDecoration(
   hintText: 'Full Name',
   hintStyle: TextStyle(
     color: Color(0xFFFFA0A0A0),
+    //
     // fontFamily: 'Poppin',
     fontSize: 14.0,
   ),

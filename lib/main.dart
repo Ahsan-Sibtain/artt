@@ -1,8 +1,11 @@
 import 'package:art/component/customer_BottomBar.dart';
+import 'package:art/screens/Artist/profile_update.dart';
+import 'package:art/screens/Customer/artDetail.dart';
 import 'package:art/screens/Customer/confirmation.dart';
 import 'package:art/screens/Customer/customer_SignUp.dart';
 import 'package:art/screens/Customer/customer_SignupDetail.dart';
 import 'package:art/screens/Customer/customer_login.dart';
+import 'package:art/screens/Customer/settings.dart';
 import 'package:art/screens/country_select.dart';
 import 'package:art/screens/rest_Password.dart';
 import 'package:art/screens/splash.dart';
@@ -14,18 +17,25 @@ import 'package:art/screens/Artist/artist_signUp.dart';
 import 'package:art/screens/Artist/artist_signupDetail.dart';
 import 'package:art/screens/Artist/Artconfirmation.dart';
 import 'package:art/screens/visitor/visitor_BottomBar.dart';
+import 'package:art/screens/Customer/searchResult.dart';
+import 'package:flutter/services.dart';
+
+
 
 void main() {
-  runApp(MyApp());
+
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp])
+      .then((_){
+    runApp(MyApp());
+  }
+  );
 }
 
 var routes = <String, WidgetBuilder>{
 
-  // "/lanuageSelect": (BuildContext context) => LanguageSelector(),
-  // "/bottomNavigation": (BuildContext context) => navigationBar(),
-  // "/notifi": (BuildContext context) =>  notifications(),
-  // "/mygrades": (BuildContext context) =>  myGrades(),
-  // "/contactus": (BuildContext context) =>  contactUsWithOutSignIn(),
+
 
   "/countrySelect": (BuildContext context) => CountrySelect(),
   "/signIn": (BuildContext context) => CustomerLogin(),
@@ -43,6 +53,12 @@ var routes = <String, WidgetBuilder>{
   "/artConfirm": (BuildContext context) => ArtNumConfirm(),
   "/artistSignUp": (BuildContext context) => ArtistSignUp(),
   "/artistSignUpDetails": (BuildContext context) => ArtistSignUpDetail(),
+  "/artDetails": (BuildContext context) => ArtDetail(),
+  "/settings": (BuildContext context) => Settings(),
+  // ignore: equal_keys_in_map
+  "/selectUser": (BuildContext context) => SelectUser(),
+  "/SellerProfileUpdate": (BuildContext context) => sellerProfileUpdate(),
+
 
 
 };
@@ -63,17 +79,3 @@ class MyApp extends StatelessWidget {
 }
 
 
-
-// class _MyAppState extends State<MyApp> {
-//   @override
-//   Widget build(BuildContext context) {
-//     SystemChrome.setPreferredOrientations(
-//         [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
-//     //
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(),
-//       home: SplashScreen(),
-//     );
-//   }
-// }

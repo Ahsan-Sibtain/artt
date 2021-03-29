@@ -41,7 +41,7 @@ class _ArtistSignUpDetailState extends State<ArtistSignUpDetail> {
                     image: AssetImage('images/logo.png'), //TODO: Logo Image
                   ),
                 ),
-                //*******************LOGIN IN TO ART FOR you TEXT
+
                 RichText(
                   textAlign: TextAlign.left,
                   text: TextSpan(
@@ -113,7 +113,7 @@ class _ArtistSignUpDetailState extends State<ArtistSignUpDetail> {
                 ),
                 SizedBox(height: height / 90),
 
-                //************* PASSWORD TEXT
+
                 Text("Password",
                     style: TextStyle(
                         color: Colors.grey,

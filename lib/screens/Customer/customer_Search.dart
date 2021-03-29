@@ -1,21 +1,23 @@
 import 'package:art/component/mySwitch.dart';
+import 'package:art/screens/Customer/artDetail.dart';
 import 'package:art/screens/Customer/searchResult.dart';
 import 'package:art/component/CustomTextField.dart';
 import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:art/component/flat_Button.dart';
 import 'package:art/component/constant.dart';
+import 'package:art/screens/visitor/visitor_art_details.dart';
 import 'package:checkbox_grouped/checkbox_grouped.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:art/component/Chips.dart';
 
-class CustomerSearch extends StatefulWidget {
+class customerSearch extends StatefulWidget {
   @override
-  _CustomerSearchState createState() => _CustomerSearchState();
+  _customerSearchState createState() => _customerSearchState();
 }
 
-class _CustomerSearchState extends State<CustomerSearch> {
+class _customerSearchState extends State<customerSearch> {
   RangeValues values = RangeValues(200, 2000);
   RangeLabels labels =RangeLabels('200', "2000");
 
@@ -69,18 +71,14 @@ class _CustomerSearchState extends State<CustomerSearch> {
       "name": 'Egypt'
     },
 
-    // const Item('Morocco', Image(image: AssetImage("flags/morocco.png"),)),
-    // const Item('Algeria', Image(image: AssetImage("flags/algeria.png"),)),
-    // const Item('Libya', Image(image: AssetImage("flags/libya.png"),)),
-    // const Item('Tunisia', Image(image: AssetImage("flags/tunisia.png"),)),
-    // const Item('Egypt', Image(image: AssetImage("flags/egypt.png"),)),
+
 
   ];
 
-  // String currnt = Jiffy().yMMMEdjm;
+
 
   TextEditingController categoryTxt = new TextEditingController();
-  //*****************************
+
   bool isDark;
   bool status = false;
   bool valuefirst = false;
@@ -111,14 +109,14 @@ class _CustomerSearchState extends State<CustomerSearch> {
               onpressed: () {},
             ),
             Text(
-              "Filter",
+              "Filter", style: TextStyle(fontSize: height / 50, color: Colors.white),
             ),
             FilterFlatButton(
               TxtColor: Colors.white,
               ButtonTitle: "Apply", //TODO: APPLY BUTTON
               onpressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SearchResult()));
+                    MaterialPageRoute(builder: (context) => customerSearchResult()));
               },
             ),
           ],
@@ -285,7 +283,7 @@ class _CustomerSearchState extends State<CustomerSearch> {
                     child: CustomTextField(
                       hinttext: "Artist Name",
                       obscureText: false,
-                      textInputType: TextInputType.emailAddress,
+                      textInputType: TextInputType.text,
                     ),
                   ),
                 ),
@@ -312,7 +310,7 @@ class _CustomerSearchState extends State<CustomerSearch> {
                     width: width/1.2,
                     height: height/18,
                     child: Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       // mainAxisAlignment: MainAxisAlignment.center,
                       children:<Widget> [
                         Container(
@@ -324,7 +322,7 @@ class _CustomerSearchState extends State<CustomerSearch> {
                               color: Colors.white,
                             ),
                             child: TextFormField(
-                                keyboardType: TextInputType.number,
+                              keyboardType: TextInputType.number,
                               decoration: kTxtField.copyWith(
                                   hintText: 'Height (cm)'), //TODO:ENTER TAGs
                             )),
@@ -376,7 +374,7 @@ class _CustomerSearchState extends State<CustomerSearch> {
                     SizedBox(width: width/20,),
                     Container(
                         padding: EdgeInsets.only(left: 10.0, right: 10.0, ),
-                       width: width/1.6,
+                        width: width/1.6,
                         height: 45.0,
                         decoration: BoxDecoration(
                           boxShadow: kElevationToShadow[1],
@@ -414,7 +412,7 @@ class _CustomerSearchState extends State<CustomerSearch> {
                           color: Colors.white,
                         ),
                         child: TextFormField(
-                          keyboardType: TextInputType.number,
+                          keyboardType: TextInputType.text,
                           decoration: kTxtField.copyWith(
                               hintText: 'Enter material'), //TODO:ENTER TAGs
                         )),
@@ -466,49 +464,49 @@ class _CustomerSearchState extends State<CustomerSearch> {
                 SizedBox(height: height/50,),
                 Center(
                   child: Container(
-                    padding: EdgeInsets.only(left: 12.0, right: 12.0),
-                    width: width/1.2,
-                    height: 45.0,
-                    decoration: BoxDecoration(
-                      boxShadow: kElevationToShadow[1],
-                      borderRadius: BorderRadius.circular(40),
-                      color: Colors.white,
-                    ),
-                    //TODO: SELECT COUNTRY / REGION DROPDOWN
-                    child: Row(
-                      children: <Widget>[
-                        Expanded(child: DropdownButtonHideUnderline(
-                          child: ButtonTheme(
-                            alignedDropdown: true,
-                            child: DropdownButton<String>(
-                              isDense: true,
-                              hint: new Text("Select country"),
-                              value: _myselection,
-                              onChanged: (String newValue){
-                                setState(() {
-                                  _myselection = newValue;
-                                });
-                              },
-                              items: flags.map((Map map) {
-                                return DropdownMenuItem<String>(
-                                value: map ["name"].toString(),
-    child: Row(
-    children: <Widget>[
-      Image.asset(map["image"],
-    width: 25,),
-    Container(
-    margin: EdgeInsets.only(left: 10),
-    child: Text(map["name"]),
-    )
-    ],
-    ),
-                                );
-                              }).toList(),
+                      padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                      width: width/1.2,
+                      height: 45.0,
+                      decoration: BoxDecoration(
+                        boxShadow: kElevationToShadow[1],
+                        borderRadius: BorderRadius.circular(40),
+                        color: Colors.white,
+                      ),
+                      //TODO: SELECT COUNTRY / REGION DROPDOWN
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(child: DropdownButtonHideUnderline(
+                            child: ButtonTheme(
+                              alignedDropdown: true,
+                              child: DropdownButton<String>(
+                                isDense: true,
+                                hint: new Text("Select country"),
+                                value: _myselection,
+                                onChanged: (String newValue){
+                                  setState(() {
+                                    _myselection = newValue;
+                                  });
+                                },
+                                items: flags.map((Map map) {
+                                  return DropdownMenuItem<String>(
+                                    value: map ["name"].toString(),
+                                    child: Row(
+                                      children: <Widget>[
+                                        Image.asset(map["image"],
+                                          width: 25,),
+                                        Container(
+                                          margin: EdgeInsets.only(left: 10),
+                                          child: Text(map["name"]),
+                                        )
+                                      ],
+                                    ),
+                                  );
+                                }).toList(),
+                              ),
                             ),
-                          ),
-                        ))
-                      ],
-                    )
+                          ))
+                        ],
+                      )
                   ),
                 ),
                 Divider(color: Colors.black12,
@@ -522,153 +520,153 @@ class _CustomerSearchState extends State<CustomerSearch> {
                   children: [
                     Container(
                       //height: height/,
-                    width: width/2.4,
-                    // color: Colors.grey,
+                      width: width/2.4,
+                      // color: Colors.grey,
                       child: Column(
                         children:
-                      [
-                        Row(
-                                      children: [
-                                        Icon(Icons.credit_card,size: height/50,),
-                                        SizedBox(
-                                          width: 6.0,
-                                        ),
-                                        Text("Payment Methods", style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: height/60,
+                        [
+                          Row(
+                            children: [
+                              Icon(Icons.credit_card,size: height/50,),
+                              SizedBox(
+                                width: 6.0,
+                              ),
+                              Text("Payment Methods", style: TextStyle(
+                                color: Colors.black,
+                                fontSize: height/60,
 
-                                        )),
+                              )),
 
-                                      ],
-                                    ),
-                        Column(
-                          children: <Widget>[
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Checkbox(
-                                  value: pay1,
-                                  onChanged: (bool value) {
-                                    setState(() {
-                                      pay1 = value;
-                                    });
-                                  },
-                                ),
-                                Text("Cash on delivery",style: TextStyle(fontSize: 10),),
+                            ],
+                          ),
+                          Column(
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Checkbox(
+                                    value: pay1,
+                                    onChanged: (bool value) {
+                                      setState(() {
+                                        pay1 = value;
+                                      });
+                                    },
+                                  ),
+                                  Text("Cash on delivery",style: TextStyle(fontSize: 10),),
 
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Checkbox(
-                                  value: pay2,
-                                  onChanged: (bool value) {
-                                    setState(() {
-                                      pay2 = value;
-                                    });
-                                  },
-                                ),
-                                Text("Bank Transfer",style: TextStyle(fontSize: 10),),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Checkbox(
+                                    value: pay2,
+                                    onChanged: (bool value) {
+                                      setState(() {
+                                        pay2 = value;
+                                      });
+                                    },
+                                  ),
+                                  Text("Bank Transfer",style: TextStyle(fontSize: 10),),
 
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Checkbox(
-                                  value: pay3,
-                                  onChanged: (bool value) {
-                                    setState(() {
-                                      pay3 = value;
-                                    });
-                                  },
-                                ),
-                                Text("Money Sending",style: TextStyle(fontSize: 10),),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Checkbox(
+                                    value: pay3,
+                                    onChanged: (bool value) {
+                                      setState(() {
+                                        pay3 = value;
+                                      });
+                                    },
+                                  ),
+                                  Text("Money Sending",style: TextStyle(fontSize: 10),),
 
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],),
                     ) ,
 
 
                     Container(
                       //height: height/,
-                    width: width/2.4,
-                    // color: Colors.grey,
+                      width: width/2.4,
+                      // color: Colors.grey,
                       child: Column(
                         children:
-                      [
-                        Row(
-                                      children: [
-                                        Icon(Icons.directions_car_sharp,size: height/50,),
-                                        SizedBox(
-                                          width: 6.0,
-                                        ),
-                                        Text("Delievrry Methods", style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: height/60,
+                        [
+                          Row(
+                            children: [
+                              Icon(Icons.directions_car_sharp,size: height/50,),
+                              SizedBox(
+                                width: 6.0,
+                              ),
+                              Text("Delievrry Methods", style: TextStyle(
+                                color: Colors.black,
+                                fontSize: height/60,
 
-                                        )),
+                              )),
 
-                                      ],
-                                    ),
-                        Column(
-                          children: <Widget>[
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Checkbox(
-                                  value: delv1,
-                                  onChanged: (bool value) {
-                                    setState(() {
-                                      delv1 = value;
-                                    });
-                                  },
-                                ),
-                                Text("DHL"),
+                            ],
+                          ),
+                          Column(
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Checkbox(
+                                    value: delv1,
+                                    onChanged: (bool value) {
+                                      setState(() {
+                                        delv1 = value;
+                                      });
+                                    },
+                                  ),
+                                  Text("DHL"),
 
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Checkbox(
-                                  value: delv2,
-                                  onChanged: (bool value) {
-                                    setState(() {
-                                      delv2 = value;
-                                    });
-                                  },
-                                ),
-                                Text("Amana Express",style: TextStyle(fontSize: 12),),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Checkbox(
+                                    value: delv2,
+                                    onChanged: (bool value) {
+                                      setState(() {
+                                        delv2 = value;
+                                      });
+                                    },
+                                  ),
+                                  Text("Amana Express",style: TextStyle(fontSize: 12),),
 
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Checkbox(
-                                  value: delv3,
-                                  onChanged: (bool value) {
-                                    setState(() {
-                                      delv3 = value;
-                                    });
-                                  },
-                                ),
-                                Text("Chronopost",style: TextStyle(fontSize: 12),),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Checkbox(
+                                    value: delv3,
+                                    onChanged: (bool value) {
+                                      setState(() {
+                                        delv3 = value;
+                                      });
+                                    },
+                                  ),
+                                  Text("Chronopost",style: TextStyle(fontSize: 12),),
 
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],),
                     ) ,
-                    ],
+                  ],
                 )
-       ],
+              ],
             ),
           ),
         ),

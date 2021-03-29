@@ -250,7 +250,7 @@ class NotificationData {
     return _nofication.length;
   }
 }
-//******************************************************************
+
 
 //TODO: Offer DATA
 Map Offer = {
@@ -394,7 +394,7 @@ class OfferData {
   }
 }
 
-//***********************************************
+
 
 //TODO: Receive Offer DATA (Artist)
 class OfferReceive {

@@ -28,8 +28,6 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                 Expanded(
                   child: ListView.builder(
                       shrinkWrap: true,
-// scrollDirection: Axis.vertical,
-//
                       itemCount: _offer.getLength(),
                       itemBuilder: (context, index) {
                         return Column(
@@ -73,7 +71,7 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                                 style: CardSubTitleStyle,
                                                 textAlign: TextAlign.center,
                                               ),
-                                              // SizedBox(height: height/90),
+
                                               Text(
                                                 "${_offer.getLocation(index)}", //TODO: LOCATION
                                                 style: CardSubTitleStyle1,
@@ -113,9 +111,7 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                                   )
                                                 ],
                                               ),
-                                              // SizedBox(
-                                              //   height: height/80,
-                                              // ),
+
 
                                               Row(
                                                 children: [
@@ -182,12 +178,8 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                                   ),
                                                 ),
                                               ),
-                                              // SizedBox(
-                                              //   height: height/,
-                                              // ),
-                                              SizedBox(
-                                                height: 2,
-                                              ),
+
+
                                               Text(
                                                   "${_offer.getPrice(index)}", //TODO: PRICEE
                                                   style: TextStyle(
@@ -263,10 +255,11 @@ class _OrderAcceptedState extends State<OrderAccepted> {
                                                     color: Colors.grey,
                                                     fontSize: height/55),
                                               ),
-                                              SizedBox(width: width/60),
+                                              //SizedBox(width: width/60),
                                               Container(
                                                 height: height/30,
-                                                width: width/3.7,
+                                                width: width/3.4,
+                                                // ignore: deprecated_member_use
                                                 child: RaisedButton(
                                                   onPressed: () {},
                                                   child: Text(

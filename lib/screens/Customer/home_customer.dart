@@ -5,6 +5,7 @@ import 'package:art/component/list_data.dart';
 import 'package:art/component/Chips.dart';
 import 'package:art/screens/ArtistProfile_forCustomer.dart';
 import 'package:art/screens/Artist/artist_login.dart';
+import 'package:art/screens/Customer/settings.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:art/component/colors.dart';
@@ -45,9 +46,17 @@ class _CustomerHomeState extends State<CustomerHome> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Icon(
-                Icons.settings,
-                color: graycolor,
+              IconButton(
+                icon: Icon(
+                  Icons.settings,
+                  color: Colors.grey,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Settings()),
+                  );
+                },
               ),
               SizedBox(width: 14.0),
             ],
@@ -74,10 +83,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                 ),
                 Text(
                   "Choose a topic",
-                  style: TextStyle(
-                      color: Colors.black,
-                      // fontWeight: FontWeight.w500,
-                      fontSize: height / 50),
+                  style: TextStyle(color: Colors.black, fontSize: height / 50),
                 ),
 
                 Container(
@@ -92,17 +98,13 @@ class _CustomerHomeState extends State<CustomerHome> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Specify your interest",
-                            style: kTextStyleHeader),
+                        Text("Specify your interest", style: kTextStyleHeader),
                         SubCategoryChip(),
                       ],
                     )),
                 Text(
                   "Top 10 Sellers",
-                  style: TextStyle(
-                      color: Colors.black,
-                      // fontWeight: FontWeight.w500,
-                      fontSize: height / 50),
+                  style: TextStyle(color: Colors.black, fontSize: height / 50),
                 ),
                 SizedBox(height: height / 60),
                 Container(
@@ -133,10 +135,7 @@ class _CustomerHomeState extends State<CustomerHome> {
 
                 Text(
                   "Top 10 Sales",
-                  style: TextStyle(
-                      color: Colors.black,
-                      // fontWeight: FontWeight.w500,
-                      fontSize: height / 50),
+                  style: TextStyle(color: Colors.black, fontSize: height / 50),
                 ),
                 SizedBox(height: 10.0),
                 Container(
@@ -166,24 +165,21 @@ class _CustomerHomeState extends State<CustomerHome> {
                                     Padding(
                                       padding: const EdgeInsets.only(
                                           left: 8.0, right: 8.0, top: 5.0),
-                                      child: Positioned(
-                                        top: 1.0,
-                                        child: Container(
-                                          color: Colors.grey.withOpacity(0.5),
+                                      child: Container(
+                                        color: Colors.grey.withOpacity(0.5),
 
-                                          height: height / 22,
-                                          width: width / 1.4,
-                                          child: Center(
-                                            child: Text(
-                                              "Art",
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ), //TODO: Art Name
-                                        ),
+                                        height: height / 22,
+                                        width: width / 1.4,
+                                        child: Center(
+                                          child: Text(
+                                            "Art",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ), //TODO: Art Name
                                       ),
                                     ),
                                     Positioned(
@@ -198,13 +194,12 @@ class _CustomerHomeState extends State<CustomerHome> {
                                         child: Center(
                                           child: Row(
                                             mainAxisAlignment:
-                                                MainAxisAlignment
-                                                    .spaceBetween,
-                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
                                             children: [
                                               Row(
                                                 children: [
-
                                                   Text(
                                                     "152 \$",
                                                     style: TextStyle(
@@ -219,8 +214,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                                                 children: [
                                                   Icon(
                                                     EvaIcons.star,
-                                                    color:
-                                                        Colors.orangeAccent,
+                                                    color: Colors.orangeAccent,
                                                   ),
                                                   Text(
                                                     "111",
@@ -239,7 +233,6 @@ class _CustomerHomeState extends State<CustomerHome> {
                                                         fontWeight:
                                                             FontWeight.bold),
                                                   ),
-
                                                 ],
                                               ),
                                             ],
@@ -248,22 +241,20 @@ class _CustomerHomeState extends State<CustomerHome> {
                                       ),
                                     ),
                                   ],
-                                )),
+                                )
+                                ),
                               ))
                           .toList(),
                     )),
 
                 SizedBox(
-                  height: height/60,
+                  height: height / 60,
                 ),
                 Text(
                   "Suggested for you",
-                  style: TextStyle(
-                      color: Colors.black,
-                      // fontWeight: FontWeight.w500,
-                      fontSize: height / 50),
+                  style: TextStyle(color: Colors.black, fontSize: height / 50),
                 ),
-                SizedBox(height: height/60),
+                SizedBox(height: height / 60),
 
                 //TODO: Grid view of Art work
                 Container(
@@ -283,15 +274,14 @@ class _CustomerHomeState extends State<CustomerHome> {
                           child: Card(
                             color: Colors.grey.shade100,
                             elevation: 5,
-                            //margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: Column(
                               children: <Widget>[
                                 Container(
-                                  //margin: EdgeInsets.only(bottom: 8.0),
-                                  height: height/6, width: width/2,
+                                  height: height / 6,
+                                  width: width / 2,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(12.0),
@@ -305,14 +295,14 @@ class _CustomerHomeState extends State<CustomerHome> {
                                   ),
                                 ),
                                 SizedBox(
-                                  height:height/80,
+                                  height: height / 80,
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(
                                       EvaIcons.heart,
-                                      size: height/45,
+                                      size: height / 45,
                                       color: Colors.red,
                                     ),
                                     Text(
@@ -320,11 +310,11 @@ class _CustomerHomeState extends State<CustomerHome> {
                                       style: TextStyle(fontSize: 15.0),
                                     ),
                                     SizedBox(
-                                      width: width/80,
+                                      width: width / 80,
                                     ),
                                     Icon(
                                       EvaIcons.eye,
-                                      size: height/45,
+                                      size: height / 45,
                                       color: Colors.blue,
                                     ),
                                     Text(
@@ -336,7 +326,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                                     ),
                                     Icon(
                                       EvaIcons.messageCircle,
-                                      size: height/45,
+                                      size: height / 45,
                                       color: Colors.orangeAccent,
                                     ),
                                     Text(
@@ -345,14 +335,14 @@ class _CustomerHomeState extends State<CustomerHome> {
                                     ),
                                   ],
                                 ),
-                                SizedBox(height:height/70),
+                                SizedBox(height: height / 70),
                                 Text(
                                   "The Canvas", //TODO: ART NAme
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold),
                                 ),
-                                SizedBox(height:height/70),
+                                SizedBox(height: height / 70),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -373,13 +363,13 @@ class _CustomerHomeState extends State<CustomerHome> {
                 ),
 
                 SizedBox(
-                  height: height/60,
+                  height: height / 60,
                 ),
                 Text(
                   "Trending products for last 30 days",
                   style: kTextStyleHeader,
                 ),
-                SizedBox(height: height/60),
+                SizedBox(height: height / 60),
                 Container(
                   // height: MediaQuery.of(context).size.height,
                   child: ListView.builder(
@@ -619,10 +609,11 @@ class _CustomerHomeState extends State<CustomerHome> {
                                                 ),
                                                 InkWell(
                                                     splashColor:
-                                                    Colors.grey[400],
+                                                        Colors.grey[400],
                                                     highlightColor:
-                                                    Colors.grey[400],
-                                                    child: Image.asset("images/instaShare.png",
+                                                        Colors.grey[400],
+                                                    child: Image.asset(
+                                                      "images/instaShare.png",
                                                       color: Colors.black,
                                                       scale: 50,
                                                       // EvaIcons.share,
@@ -632,7 +623,6 @@ class _CustomerHomeState extends State<CustomerHome> {
                                                     onTap: () {})
                                               ],
                                             ),
-
                                           ],
                                         ),
                                       ],
@@ -660,10 +650,8 @@ class _CustomerHomeState extends State<CustomerHome> {
     for (int i = 0; i < _options.length; i++) {
       ChoiceChip choiceChip = ChoiceChip(
         selected: _selectedIndex == i,
-
         label: Text(_options[i], style: TextStyle(color: Colors.white)),
         elevation: 5,
-
         pressElevation: 5,
         shadowColor: Colors.teal,
         backgroundColor: Colors.black54,

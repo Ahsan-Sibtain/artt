@@ -13,21 +13,17 @@ class _CustomerTabState extends State<CustomerTab> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return DefaultTabController(
       length: 3,
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Color(0xFFFF3D3A3A),
-          title: Text("Orders"),
+          title: Text("Orders", style: TextStyle(fontSize: height / 50, color: Colors.white),),
           centerTitle: true,
-          actions: [
-            IconButton(
-                icon: Icon(
-              Icons.settings,
-              color: Colors.white,
-            )),
-          ],
+
           bottom: TabBar(
             indicatorColor: Colors.white,
             labelColor: Colors.white,
@@ -58,4 +54,4 @@ class _CustomerTabState extends State<CustomerTab> {
 //
 }
 
-//*******************
+

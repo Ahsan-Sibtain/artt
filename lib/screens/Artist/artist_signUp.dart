@@ -27,8 +27,7 @@ class _ArtistSignUpState extends State<ArtistSignUp> {
       ],
       localizationsDelegates: [
         CountryLocalizations.delegate,
-        // GlobalMaterialLocalizations.delegate,
-        // GlobalWidgetsLocalizations.delegate,
+
       ],
       home: Scaffold(
         backgroundColor: Colors.white,

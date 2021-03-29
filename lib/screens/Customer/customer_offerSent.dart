@@ -28,7 +28,7 @@ class _SentOrdersState extends State<SentOrders> {
                 Expanded(
                   child: ListView.builder(
                       shrinkWrap: true,
-// scrollDirection: Axis.vertical,
+
 //
                       itemCount: _offer.getLength(),
                       itemBuilder: (context, index) {
@@ -74,7 +74,7 @@ class _SentOrdersState extends State<SentOrders> {
                                                 style: CardSubTitleStyle,
                                                 textAlign: TextAlign.center,
                                               ),
-                                              // SizedBox(height: height/90),
+
                                               Text(
                                                 "${_offer.getLocation(index)}", //TODO: LOCATION
                                                 style: CardSubTitleStyle1,
@@ -114,9 +114,7 @@ class _SentOrdersState extends State<SentOrders> {
                                                   )
                                                 ],
                                               ),
-                                              // SizedBox(
-                                              //   height: height/80,
-                                              // ),
+
 
                                               Row(
                                                 children: [
@@ -254,9 +252,7 @@ class _SentOrdersState extends State<SentOrders> {
                                           SizedBox(
                                             height: height/80,
                                           ),
-                                          // SizedBox(
-                                          //   height: 10,
-                                          // ),
+
                                           Row(
                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                             children: [
@@ -270,7 +266,8 @@ class _SentOrdersState extends State<SentOrders> {
                                               SizedBox(width: width/80,),
                                               Container(
                                                 height: height/30,
-                                                width: width/3.7,
+                                                width: width/3.4,
+                                                // ignore: deprecated_member_use
                                                 child: RaisedButton(
                                                   onPressed: () {},
                                                   child: Text(
@@ -280,8 +277,7 @@ class _SentOrdersState extends State<SentOrders> {
                                                         fontSize: height/60,
                                                         color: Colors.white),
                                                   ),
-                                                  // minWidth: 28.0,
-                                                  // height: 26.0,
+
                                                   color: Colors.green.shade200,
                                                   splashColor: Colors.green,
                                                   shape: StadiumBorder(),

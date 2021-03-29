@@ -140,9 +140,7 @@ class _AcceptedOrderState extends State<AcceptedOrder> {
                                                   )
                                                 ],
                                               ),
-                                              // SizedBox(
-                                              //   height: height/80,
-                                              // ),
+
 
                                               Row(
                                                 children: [

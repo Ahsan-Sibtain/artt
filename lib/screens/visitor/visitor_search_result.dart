@@ -2,6 +2,7 @@ import 'package:art/component/button.dart';
 import 'package:art/component/colors.dart';
 import 'package:art/component/constant.dart';
 import 'package:art/component/list_data.dart';
+import 'package:art/screens/visitor/visitor_art_details.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,14 +11,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../offer_Detail.dart';
 import '../order_Detail.dart';
-import 'artDetail.dart';
 
-class customerSearchResult extends StatefulWidget {
+
+class visitorSearchResult extends StatefulWidget {
   @override
-  _customerSearchResultState createState() => _customerSearchResultState();
+  _visitorSearchResultState createState() => _visitorSearchResultState();
 }
 
-class _customerSearchResultState extends State<customerSearchResult> {
+class _visitorSearchResultState extends State<visitorSearchResult> {
   OfferData _offer = OfferData();
   String status;
   @override
@@ -268,7 +269,7 @@ class _customerSearchResultState extends State<customerSearchResult> {
                                           ),
                                           onPressed: () {
                                             Navigator.push(context, new MaterialPageRoute(
-                                                builder: (context) => new ArtDetail())
+                                                builder: (context) => new visitorArtDetails())
                                             );
 
                                           },

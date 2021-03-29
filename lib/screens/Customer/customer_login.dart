@@ -44,7 +44,7 @@ class _CustomerLoginState extends State<CustomerLogin> {
                     image: AssetImage('images/logo.png'), //TODO: Logo Image
                   ),
                 ),
-                //*******************LOGIN IN TO ART FOR you TEXT
+
                 RichText(
                   textAlign: TextAlign.left,
                   text: TextSpan(
@@ -59,7 +59,7 @@ class _CustomerLoginState extends State<CustomerLogin> {
                   ),
                 ),
                 SizedBox(height: height / 60),
-                //************* EMAIL TEXT
+
                 Text("Email", style:  TextStyle(
                     color: Colors.grey,
                     fontSize: height / 50,
@@ -72,7 +72,7 @@ class _CustomerLoginState extends State<CustomerLogin> {
                 ),
                 SizedBox(height: height / 60),
 
-                //************* PASSWORD TEXT
+
                 Text("Password",
                     style: TextStyle(
                         color: Colors.grey,
@@ -177,7 +177,7 @@ class _CustomerLoginState extends State<CustomerLogin> {
                       children: [
                         Text(
                           "Don't have Account ?",
-                          // style: TextStyle(fontWeight: FontWeight.w500),
+
                         ),
                         SizedBox(width: 5,),
                         Align(

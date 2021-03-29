@@ -66,7 +66,7 @@ class _CategoryChipHomeState extends State<CategoryChipHome>
         ));
   }
 }
-//*******************************************************************
+
 
 class SubCategoryChip extends StatefulWidget {
 
@@ -134,7 +134,7 @@ class _SubCategoryChipState extends State<SubCategoryChip>
         ));
   }
 }
-//*******************************************************************
+
 
 class SelectChip extends StatefulWidget {
   @override
@@ -196,7 +196,7 @@ class _SelectChipState extends State<SelectChip> with TickerProviderStateMixin {
         ));
   }
 }
-//*******************************************************************
+
 
 class CategoryChip extends StatefulWidget {
   @override

@@ -1,8 +1,9 @@
+import 'package:art/screens/Artist/profile_update.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:art/component/constant.dart';
 import 'package:art/component/flat_Button.dart';
-
+import 'package:art/screens/Artist/edit_product.dart';
 class ArtistProfile extends StatefulWidget {
   @override
   _ArtistProfileState createState() => _ArtistProfileState();
@@ -21,121 +22,22 @@ class _ArtistProfileState extends State<ArtistProfile> {
       child: Scaffold(
 
 
-        appBar: AppBar(title: Text("Profile"),
-        centerTitle: true,
-      backgroundColor: Color(0xFFFF3D3A3A),),
+        appBar: AppBar(
+          backgroundColor: Color(0xFFFF3D3A3A),
+          iconTheme: IconThemeData(
+            color: Colors.white, //change your color here
+          ),
+          title: Text(
+            "Profile",
+            style: TextStyle(fontSize: height / 50, color: Colors.white),
+          ),
+          centerTitle: true,
+        ),
         backgroundColor: Colors.white,
         body: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
-            //   SliverAppBar(
-            //     backgroundColor: Colors.white,
-            //     elevation: 5,
-            //     expandedHeight: 10.0,
-            //     floating: false,
-            //     pinned: true,
-            //     centerTitle: true,
-            //
-            //
-            //
-            //     leading: PreferredSize(
-            // preferredSize: Size.fromHeight(60.0),
-            //       child:  Container(
-            //         // color: Colors.red,
-            //         child: Row(
-            //           children: [
-            //             CircleAvatar(
-            //               radius: 25.0,
-            //               backgroundImage:
-            //               AssetImage("images/ava.png"), //TODO: Profile Pic
-            //             ),
-            //             Column(
-            //               children: [
-            //
-            //
-            //                 Container(
-            //                   width: width/1.4,
-            //                   child: Row(
-            //                     mainAxisAlignment: MainAxisAlignment.center,
-            //                     children: [
-            //                       Column(
-            //                         children: [
-            //                           Text(
-            //                             "$likes", //TODO: Show likes
-            //                             style: TextStyle(
-            //                                 fontWeight: FontWeight.bold,
-            //                                 fontSize: height/55),
-            //                           ),
-            //                           SizedBox(
-            //                             height: height/90,
-            //                           ),
-            //                           Text(
-            //                             "Likes",
-            //                             style: TextStyle(
-            //                                 fontWeight: FontWeight.bold,
-            //                                 color: Colors.grey,
-            //                                 fontSize: height/55),
-            //                           ),
-            //                         ],
-            //                       ),
-            //                       SizedBox(
-            //                         width: width/30,
-            //                       ),
-            //                       Column(
-            //                         children: [
-            //                           Text(
-            //                             "$views", //TODO: Show number Views
-            //                             style: TextStyle(
-            //                                 fontWeight: FontWeight.bold,
-            //                                 fontSize: height/55),
-            //                           ),
-            //                           SizedBox(
-            //                             height: height/90,
-            //                           ),
-            //                           Text(
-            //                             "Views",
-            //                             style: TextStyle(
-            //                                 fontWeight: FontWeight.bold,
-            //                                 color: Colors.grey,
-            //                                 fontSize: height/55),
-            //                           ),
-            //                         ],
-            //                       ),
-            //                       SizedBox(
-            //                         width: width/30,
-            //                       ),
-            //                       Column(
-            //                         children: [
-            //                           Text(
-            //                             "$offers", //TODO: Show Numbers of offers
-            //                             style: TextStyle(
-            //                                 fontWeight: FontWeight.bold,
-            //                                 fontSize: height/55),
-            //                           ),
-            //                           SizedBox(
-            //                             height: height/90,
-            //                           ),
-            //                           Text(
-            //                             "Offers",
-            //                             style: TextStyle(
-            //                                 fontWeight: FontWeight.bold,
-            //                                 color: Colors.grey,
-            //                                 fontSize: height/55),
-            //                           ),
-            //                         ],
-            //                       ),
-            //
-            //                     ],
-            //                   ),
-            //                 ),
-            //
-            //               ],
-            //             ),
-            //           ],
-            //         ),
-            //       )
-            //     )
-            //   ),
+
               SliverPadding(
                 padding: new EdgeInsets.all(16.0),
                 sliver: new SliverList(
@@ -248,7 +150,8 @@ class _ArtistProfileState extends State<ArtistProfile> {
 
 
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            // mainAxisAlignment: MainAxisAlignment.center,
+                            // crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
 
@@ -278,11 +181,16 @@ class _ArtistProfileState extends State<ArtistProfile> {
                                   ),
                                 ],
                               ),
+                              SizedBox(width: width/8,),
                               Container(
                                 height: height/30,
                                 width: width/3.7,
+                                // ignore: deprecated_member_use
                                 child: RaisedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) => sellerProfileUpdate()));
+                                  },
                                   child: Text(
                                     "Edit Profile",
                                     style: TextStyle(
@@ -290,8 +198,7 @@ class _ArtistProfileState extends State<ArtistProfile> {
                                         fontSize: height/60,
                                         color: Colors.white),
                                   ),
-                                  // minWidth: 28.0,
-                                  // height: 26.0,
+
                                   color: Color(0xFFFF3D3A3A),
                                   splashColor: Colors.green,
                                   shape: StadiumBorder(),
@@ -358,7 +265,10 @@ class _ArtistProfileState extends State<ArtistProfile> {
                                 top: 10.0,
                                 left: 5.0,
                                 child: FilterFlatButton(
-                                  onpressed: () {}, //TODO: EDIT BUTTON
+                                  onpressed: () {
+                                    Navigator.push(context, new MaterialPageRoute(
+                                        builder: (context) => new editProduct()));
+                                  }, //TODO: EDIT BUTTON
                                   colour: Colors.grey.withOpacity(0.5),
                                   TxtColor: Colors.white,
                                   ButtonTitle: "Edit",

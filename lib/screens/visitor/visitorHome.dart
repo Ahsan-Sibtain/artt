@@ -5,6 +5,8 @@ import 'package:art/component/list_data.dart';
 import 'package:art/component/Chips.dart';
 import 'package:art/screens/ArtistProfile_forCustomer.dart';
 import 'package:art/screens/Artist/artist_login.dart';
+import 'package:art/screens/Customer/settings.dart';
+import 'package:art/screens/select_user.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:art/component/colors.dart';
@@ -45,10 +47,16 @@ class _CustomerHomeState extends State<VisitorHome> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Icon(
-                Icons.settings,
-                color: graycolor,
-              ),
+              // IconButton(
+              //   icon: Icon(Icons.settings, color: Colors.grey,),
+              //
+              //   onPressed: () {
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(builder: (context) => Settings()),
+              //     );
+              //   },
+              // ),
               SizedBox(width: 14.0),
             ],
           ),
@@ -69,6 +77,25 @@ class _CustomerHomeState extends State<VisitorHome> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(
+                  height: height / 60,
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SelectUser()),
+                    );
+                    // Navigator.pushNamed(context, "/selectUser");
+                  },
+                  child: Text(
+                    "Login first",
+                    style: TextStyle(
+                        color: Colors.black,
+                         fontWeight: FontWeight.w500,
+                        fontSize: height / 50),
+                  ),
+                ),
                 SizedBox(
                   height: height / 60,
                 ),
@@ -166,24 +193,21 @@ class _CustomerHomeState extends State<VisitorHome> {
                                     Padding(
                                       padding: const EdgeInsets.only(
                                           left: 8.0, right: 8.0, top: 5.0),
-                                      child: Positioned(
-                                        top: 1.0,
-                                        child: Container(
-                                          color: Colors.grey.withOpacity(0.5),
+                                      child: Container(
+                                        color: Colors.grey.withOpacity(0.5),
 
-                                          height: height / 22,
-                                          width: width / 1.4,
-                                          child: Center(
-                                            child: Text(
-                                              "Art",
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ), //TODO: Art Name
-                                        ),
+                                        height: height / 22,
+                                        width: width / 1.4,
+                                        child: Center(
+                                          child: Text(
+                                            "Art",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ), //TODO: Art Name
                                       ),
                                     ),
                                     Positioned(
@@ -527,21 +551,7 @@ class _CustomerHomeState extends State<VisitorHome> {
                                                                     .size
                                                                     .width,
                                                               ),
-                                                              // Positioned(
-                                                              //     child: imgList
-                                                              //                 .indexOf(item) ==
-                                                              //             0
-                                                              //         ? IconButton(
-                                                              //             icon:
-                                                              //                 Icon(
-                                                              //               EvaIcons.heartOutline,
-                                                              //               size:
-                                                              //                   40.0,
-                                                              //               color:
-                                                              //                   Colors.white,
-                                                              //             ),
-                                                              //           )
-                                                              //         : Container()),
+
                                                               Positioned(
                                                                 right: 12,
                                                                 top: 12,
